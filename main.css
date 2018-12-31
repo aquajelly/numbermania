@@ -52,3 +52,8 @@ body {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 421px) {
+  .weirdButtonThing {
+    margin-right: 5px;
+  }
+}
