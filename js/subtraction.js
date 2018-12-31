@@ -21,7 +21,7 @@ gamePlay = (num1, num2) => {
   let game = document.createElement('div');
   game.className = 'gameClass';
   game.style.height = '350px';
-  game.style.width = '800px';
+  game.style.width = '60%';
   game.style.background = 'rgb(177, 165, 158)';
   game.style.textAlign = 'center';
   game.style.margin = 'auto';
@@ -39,7 +39,7 @@ gamePlay = (num1, num2) => {
   let answerArea = document.createElement('input');
   answerArea.setAttribute('type', 'text');
   answerArea.setAttribute('placeholder', 'Click here to start typing!');
-  answerArea.style.width = '400px';
+  answerArea.style.width = '80%';
   answerArea.style.marginTop = '60px';
   answerArea.style.fontSize = '30px';
   answerArea.style.textAlign = 'center';
