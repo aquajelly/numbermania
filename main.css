@@ -1,0 +1,47 @@
+body {
+  background-color: rgb(2, 212, 167);
+}
+.header {
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 10px;
+  background-color: rgb(122, 159, 240);
+}
+.footer {
+  text-align: center;
+  border-top: 2px solid black;
+}
+.content, .homeButton {
+  text-align: center;
+}
+.buttons {
+  width: 100%;
+  margin: auto;
+  font-size: 20px;
+  margin: 20px 0px;
+  font-family: arial;
+}
+.gameType {
+  background-color: rgb(208, 241, 158);
+  border: 2px solid black;
+  font-size: 20px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.gameType:hover {
+  background-color: rgb(242, 123, 64);
+  color: white;
+}
+
+.intro {
+  font-size: 25px;
+}
+
+.homepage1, .homepage2 {
+  border-top: 2px white solid;
+  padding-top: 20px;
+  width: 60%;
+  margin: auto;
+}
