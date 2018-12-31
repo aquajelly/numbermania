@@ -45,3 +45,10 @@ body {
   width: 60%;
   margin: auto;
 }
+
+@media screen and (max-width: 300px) {
+  .header-title {
+    width: 100%;
+    font-size: 20px;
+  }
+}
