@@ -38,6 +38,8 @@ gamePlay = (num1, num2) => {
   game.appendChild(scoreArea);
   let answerArea = document.createElement('input');
   answerArea.setAttribute('type', 'text');
+  answerArea.setAttribute('placeholder', 'Click here to start typing!');
+  answerArea.style.width = '400px';
   answerArea.style.marginTop = '60px';
   answerArea.style.fontSize = '30px';
   answerArea.style.textAlign = 'center';
@@ -60,6 +62,7 @@ gamePlay = (num1, num2) => {
     gameContent.innerHTML = 'Go!';
   }
   gameStart = () => {
+    answerArea.removeAttribute('placeholder');
     gameContent.innerHTML = `${number1} x ${number2}`;
     setInterval(countdown, 1000);
   }
@@ -75,7 +78,6 @@ gamePlay = (num1, num2) => {
   checker = () => {
     if (answerArea.value == correctAnswer) {
       gameScore++;
-      console.log(gameScore);
       let number1 = parseInt(Math.random()*num1) + 1;
       let number2 = parseInt(Math.random()*num2) + 1;
       gameContent.innerHTML = `${number1} x ${number2}`;
@@ -102,6 +104,8 @@ gamePlay = (num1, num2) => {
   }
 
   gameOver = () => {
+    game.style.background = 'rgb(238, 250, 15)';
+    setTimeout(backgroundNormal, 1500);
     gameContent.innerHTML = 'Well done! You scored:';
     scoreArea.innerHTML = `${gameScore}`;
     answerArea.parentNode.removeChild(answerArea);
