@@ -4,13 +4,12 @@ easyDifficulty = document.getElementsByClassName('gameType')[0];
 mediumDifficulty = document.getElementsByClassName('gameType')[1];
 hardDifficulty = document.getElementsByClassName('gameType')[2];
 content = document.getElementsByClassName('content')[0];
-let gameScore = 0;
-let seconds = 30;
 
 gamePlay = (num1, num2) => {
+  let gameScore = 0;
+  let seconds = 30;
   let multiplier1 = num1;
   let multiplier2 = num2;
-  content.parentNode.removeChild(content);
   let timer = document.createElement('div');
   timer.style.textAlign = 'center';
   timer.style.marginTop = '20px';
@@ -109,19 +108,55 @@ gamePlay = (num1, num2) => {
     gameContent.innerHTML = 'Well done! You scored:';
     scoreArea.innerHTML = `${gameScore}`;
     answerArea.parentNode.removeChild(answerArea);
+    let buttonArea = document.querySelector('.buttons');
+
+    let newLinkForDifficulty = document.createElement('a');
+    newLinkForDifficulty.setAttribute('href', 'subtraction.html');
+    let newButtonForDifficulty = document.createElement('button');
+    newButtonForDifficulty.setAttribute('class', 'gameType weirdButtonThing');
+    newButtonForDifficulty.setAttribute('type', 'button');
+    newButtonForDifficulty.innerHTML = 'Change Difficulty';
+    newLinkForDifficulty.appendChild(newButtonForDifficulty);
+
+    let newButtonForReplay = document.createElement('button');
+    newButtonForReplay.setAttribute('class', 'gameType');
+    newButtonForReplay.setAttribute('type', 'button');
+    newButtonForReplay.innerHTML = 'Play Again';
+
+    buttonArea.appendChild(newLinkForDifficulty);
+    buttonArea.appendChild(newButtonForReplay);
+
+    replayTypeDecider = () => {
+      game.parentNode.removeChild(game);
+      timer.parentNode.removeChild(timer);
+      clearTimeout(gameStart);
+      buttonArea.removeChild(newLinkForDifficulty);
+      buttonArea.removeChild(newButtonForReplay);
+      if (num1 == 19) {
+        gamePlay(19, 19);
+      } else if (num1 == 49) {
+        gamePlay(49, 49);
+      } else if (num1 == 99) {
+        gamePlay(99, 99);
+      }
+    };
+    newButtonForReplay.addEventListener('click', replayTypeDecider);
   };
 
 };
 
 easyGame = () => {
+  content.parentNode.removeChild(content);
   gamePlay(19, 19);
 };
 
 mediumGame = () => {
+  content.parentNode.removeChild(content);
   gamePlay(49, 49);
 };
 
 hardGame = () => {
+  content.parentNode.removeChild(content);
   gamePlay(99, 99);
 };
 
