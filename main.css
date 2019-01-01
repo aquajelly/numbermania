@@ -57,6 +57,10 @@ body {
   margin: auto;
 }
 
+::placeholder {
+  color: black;
+}
+
 @media screen and (max-width: 300px) {
   .header-title {
     width: 100%;
