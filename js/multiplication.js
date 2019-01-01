@@ -14,14 +14,42 @@ document.addEventListener('DOMContentLoaded', () => {
     timer.style.textAlign = 'center';
     timer.style.marginTop = '20px';
     timer.style.marginBottom = '20px';
-    timer.style.fontSize = '30px';
+    timer.style.width = '60%';
+    timer.style.margin = 'auto';
+    timer.style.display = 'flex';
     let timerContent = document.createElement('p');
+    timerContent.style.fontSize = '20px';
+    timerContent.style.width = '40%';
+    timerContent.style.background = 'white';
+    timerContent.style.border = '2px solid black';
+    timerContent.style.borderRadius = '20px';
+    timerContent.style.padding = '5px';
+    timerContent.style.margin = 'auto';
+    timerContent.style.marginTop = '20px';
     timer.appendChild(timerContent);
+    let difficultyDisplay = document.createElement('p');
+    difficultyDisplay.style.fontSize = '20px';
+    difficultyDisplay.style.width = '40%';
+    difficultyDisplay.style.background = 'white';
+    difficultyDisplay.style.border = '2px solid black';
+    difficultyDisplay.style.borderRadius = '20px';
+    difficultyDisplay.style.padding = '5px';
+    difficultyDisplay.style.margin = 'auto';
+    difficultyDisplay.style.marginTop = '20px';
+    if (num1 == 4) {
+      difficultyDisplay.innerHTML = 'Difficulty: Easy';
+    } else if (num1 == 9) {
+      difficultyDisplay.innerHTML = 'Difficulty: Medium';
+    } else if (num1 == 19) {
+      difficultyDisplay.innerHTML = 'Difficulty: Hard';
+    }
+    timer.appendChild(difficultyDisplay);
     let game = document.createElement('div');
     game.className = 'gameClass';
     game.style.height = '350px';
     game.style.width = '60%';
-    game.style.background = 'rgb(177, 165, 158)';
+    game.style.background = 'white';
+    game.style.border = '5px solid black';
     game.style.textAlign = 'center';
     game.style.margin = 'auto';
     game.style.marginTop = '20px';
@@ -42,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     answerArea.style.marginTop = '60px';
     answerArea.style.fontSize = '30px';
     answerArea.style.textAlign = 'center';
-    answerArea.style.background = 'rgb(198, 237, 240)';
-    answerArea.style.border = '1px solid black';
+    answerArea.style.background = 'rgb(2, 212, 167)';
+    answerArea.style.border = '3px solid black';
     game.appendChild(answerArea);
     let body = document.querySelector('body');
     let button = document.querySelector('div');
@@ -83,11 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
         correctAnswer = number1 * number2;
         answerArea.value = '';
         game.style.background = 'rgb(33, 245, 22)';
-        setTimeout(backgroundNormal, 200);
+        setTimeout(backgroundNormal, 250);
       }
     }
     backgroundNormal = () => {
-      game.style.background = 'rgb(177, 165, 158)'
+      game.style.background = 'white'
     };
     setInterval(checker, 10);
 
@@ -104,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gameOver = () => {
       game.style.background = 'rgb(238, 250, 15)';
-      setTimeout(backgroundNormal, 1500);
       gameContent.innerHTML = 'Well done! You scored:';
       scoreArea.innerHTML = `${gameScore}`;
       answerArea.parentNode.removeChild(answerArea);
