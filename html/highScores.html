@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../main.css">
+  <script src="../js/highScores.js" charset="utf-8"></script>
   <title>Numbermania - High Scores</title>
 </head>
 <body>
@@ -15,16 +16,153 @@
   <div class="content">
     <div>
       <p class="intro">
-        Your high scores:
+        Your high scores for Addition:
       </p>
-      <p>
-        To go back to the home page, click the following button:
+      <div class="highScoreCalcType">
+        <div class="difficultySeparator">
+          <p>
+            Easy Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreAdditionEasy"></a> <a class="scoreSuffix1AdditionEasy"></a></div>
+          <div>Second: <a class="secondScoreAdditionEasy"></a> <a class="scoreSuffix2AdditionEasy"></a></div>
+          <div>Third: <a class="thirdScoreAdditionEasy"></a> <a class="scoreSuffix3AdditionEasy"></a></div>
+          <div>Fourth: <a class="fourthScoreAdditionEasy"></a> <a class="scoreSuffix4AdditionEasy"></a></div>
+          <div>Fifth: <a class="fifthScoreAdditionEasy"></a> <a class="scoreSuffix5AdditionEasy"></a></div>
+        </div>
+        <div class="difficultySeparator">
+          <p>
+            Medium Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreAdditionMedium"></a> <a class="scoreSuffix1AdditionMedium"></a></div>
+          <div>Second: <a class="secondScoreAdditionMedium"></a> <a class="scoreSuffix2AdditionMedium"></a></div>
+          <div>Third: <a class="thirdScoreAdditionMedium"></a> <a class="scoreSuffix3AdditionMedium"></a></div>
+          <div>Fourth: <a class="fourthScoreAdditionMedium"></a> <a class="scoreSuffix4AdditionMedium"></a></div>
+          <div>Fifth: <a class="fifthScoreAdditionMedium"></a> <a class="scoreSuffix5AdditionMedium"></a></div>
+        </div>
+        <div class="difficultySeparator">
+          <p>
+            Hard Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreAdditionHard"></a> <a class="scoreSuffix1AdditionHard"></a></div>
+          <div>Second: <a class="secondScoreAdditionHard"></a> <a class="scoreSuffix2AdditionHard"></a></div>
+          <div>Third: <a class="thirdScoreAdditionHard"></a> <a class="scoreSuffix3AdditionHard"></a></div>
+          <div>Fourth: <a class="fourthScoreAdditionHard"></a> <a class="scoreSuffix4AdditionHard"></a></div>
+          <div>Fifth: <a class="fifthScoreAdditionHard"></a> <a class="scoreSuffix5AdditionHard"></a></div>
+        </div>
+      </div>
+      <p class="intro">
+        Your high scores for Subtraction:
       </p>
+      <div class="highScoreCalcType">
+        <div class="difficultySeparator">
+          <p>
+            Easy Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreSubtractionEasy"></a> <a class="scoreSuffix1SubtractionEasy"></a></div>
+          <div>Second: <a class="secondScoreSubtractionEasy"></a> <a class="scoreSuffix2SubtractionEasy"></a></div>
+          <div>Third: <a class="thirdScoreSubtractionEasy"></a> <a class="scoreSuffix3SubtractionEasy"></a></div>
+          <div>Fourth: <a class="fourthScoreSubtractionEasy"></a> <a class="scoreSuffix4SubtractionEasy"></a></div>
+          <div>Fifth: <a class="fifthScoreSubtractionEasy"></a> <a class="scoreSuffix5SubtractionEasy"></a></div>
+        </div>
+        <div class="difficultySeparator">
+          <p>
+            Medium Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreSubtractionMedium"></a> <a class="scoreSuffix1SubtractionMedium"></a></div>
+          <div>Second: <a class="secondScoreSubtractionMedium"></a> <a class="scoreSuffix2SubtractionMedium"></a></div>
+          <div>Third: <a class="thirdScoreSubtractionMedium"></a> <a class="scoreSuffix3SubtractionMedium"></a></div>
+          <div>Fourth: <a class="fourthScoreSubtractionMedium"></a> <a class="scoreSuffix4SubtractionMedium"></a></div>
+          <div>Fifth: <a class="fifthScoreSubtractionMedium"></a> <a class="scoreSuffix5SubtractionMedium"></a></div>
+        </div>
+        <div class="difficultySeparator">
+          <p>
+            Hard Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreSubtractionHard"></a> <a class="scoreSuffix1SubtractionHard"></a></div>
+          <div>Second: <a class="secondScoreSubtractionHard"></a> <a class="scoreSuffix2SubtractionHard"></a></div>
+          <div>Third: <a class="thirdScoreSubtractionHard"></a> <a class="scoreSuffix3SubtractionHard"></a></div>
+          <div>Fourth: <a class="fourthScoreSubtractionHard"></a> <a class="scoreSuffix4SubtractionHard"></a></div>
+          <div>Fifth: <a class="fifthScoreSubtractionHard"></a> <a class="scoreSuffix5SubtractionHard"></a></div>
+        </div>
+      </div>
+      <p class="intro">
+        Your high scores for Multiplication:
+      </p>
+      <div class="highScoreCalcType">
+        <div class="difficultySeparator">
+          <p>
+            Easy Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreMultiplicationEasy"></a> <a class="scoreSuffix1MultiplicationEasy"></a></div>
+          <div>Second: <a class="secondScoreMultiplicationEasy"></a> <a class="scoreSuffix2MultiplicationEasy"></a></div>
+          <div>Third: <a class="thirdScoreMultiplicationEasy"></a> <a class="scoreSuffix3MultiplicationEasy"></a></div>
+          <div>Fourth: <a class="fourthScoreMultiplicationEasy"></a> <a class="scoreSuffix4MultiplicationEasy"></a></div>
+          <div>Fifth: <a class="fifthScoreMultiplicationEasy"></a> <a class="scoreSuffix5MultiplicationEasy"></a></div>
+        </div>
+        <div class="difficultySeparator">
+          <p>
+            Medium Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreMultiplicationMedium"></a> <a class="scoreSuffix1MultiplicationMedium"></a></div>
+          <div>Second: <a class="secondScoreMultiplicationMedium"></a> <a class="scoreSuffix2MultiplicationMedium"></a></div>
+          <div>Third: <a class="thirdScoreMultiplicationMedium"></a> <a class="scoreSuffix3MultiplicationMedium"></a></div>
+          <div>Fourth: <a class="fourthScoreMultiplicationMedium"></a> <a class="scoreSuffix4MultiplicationMedium"></a></div>
+          <div>Fifth: <a class="fifthScoreMultiplicationMedium"></a> <a class="scoreSuffix5MultiplicationMedium"></a></div>
+        </div>
+        <div class="difficultySeparator">
+          <p>
+            Hard Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreMultiplicationHard"></a> <a class="scoreSuffix1MultiplicationHard"></a></div>
+          <div>Second: <a class="secondScoreMultiplicationHard"></a> <a class="scoreSuffix2MultiplicationHard"></a></div>
+          <div>Third: <a class="thirdScoreMultiplicationHard"></a> <a class="scoreSuffix3MultiplicationHard"></a></div>
+          <div>Fourth: <a class="fourthScoreMultiplicationHard"></a> <a class="scoreSuffix4MultiplicationHard"></a></div>
+          <div>Fifth: <a class="fifthScoreMultiplicationHard"></a> <a class="scoreSuffix5MultiplicationHard"></a></div>
+        </div>
+      </div>
+      <p class="intro">
+        Your high scores for Division:
+      </p>
+      <div class="highScoreCalcType">
+        <div class="difficultySeparator">
+          <p>
+            Easy Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreDivisionEasy"></a> <a class="scoreSuffix1DivisionEasy"></a></div>
+          <div>Second: <a class="secondScoreDivisionEasy"></a> <a class="scoreSuffix2DivisionEasy"></a></div>
+          <div>Third: <a class="thirdScoreDivisionEasy"></a> <a class="scoreSuffix3DivisionEasy"></a></div>
+          <div>Fourth: <a class="fourthScoreDivisionEasy"></a> <a class="scoreSuffix4DivisionEasy"></a></div>
+          <div>Fifth: <a class="fifthScoreDivisionEasy"></a> <a class="scoreSuffix5DivisionEasy"></a></div>
+        </div>
+        <div class="difficultySeparator">
+          <p>
+            Medium Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreDivisionMedium"></a> <a class="scoreSuffix1DivisionMedium"></a></div>
+          <div>Second: <a class="secondScoreDivisionMedium"></a> <a class="scoreSuffix2DivisionMedium"></a></div>
+          <div>Third: <a class="thirdScoreDivisionMedium"></a> <a class="scoreSuffix3DivisionMedium"></a></div>
+          <div>Fourth: <a class="fourthScoreDivisionMedium"></a> <a class="scoreSuffix4DivisionMedium"></a></div>
+          <div>Fifth: <a class="fifthScoreDivisionMedium"></a> <a class="scoreSuffix5DivisionMedium"></a></div>
+        </div>
+        <div class="difficultySeparator">
+          <p>
+            Hard Difficulty:
+          </p>
+          <div>Top Score: <a class="topScoreDivisionHard"></a> <a class="scoreSuffix1DivisionHard"></a></div>
+          <div>Second: <a class="secondScoreDivisionHard"></a> <a class="scoreSuffix2DivisionHard"></a></div>
+          <div>Third: <a class="thirdScoreDivisionHard"></a> <a class="scoreSuffix3DivisionHard"></a></div>
+          <div>Fourth: <a class="fourthScoreDivisionHard"></a> <a class="scoreSuffix4DivisionHard"></a></div>
+          <div>Fifth: <a class="fifthScoreDivisionHard"></a> <a class="scoreSuffix5DivisionHard"></a></div>
+        </div>
+      </div>
+
       <div class="homeButton">
         <div class="buttons">
           <a href="../index.html"><button class="gameType" type="button">Home</button></a>
+          <button class="gameType resetScores" type="button">Reset Scores</button>
         </div>
       </div>
+
     </div>
   </div>
 
