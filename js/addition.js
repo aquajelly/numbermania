@@ -143,8 +143,93 @@ gamePlay = (num1, num2) => {
       }
     };
     newButtonForReplay.addEventListener('click', replayTypeDecider);
-  };
 
+    if (num1 == 19) {
+      localStorage.setItem('currentScore', gameScore);
+      if (gameScore >= localStorage.getItem('Score1AdditionEasy') || localStorage.getItem('Score1AdditionEasy') == 'null') {
+        localStorage.setItem('Score5AdditionEasy', localStorage.getItem('Score4AdditionEasy', gameScore));
+        localStorage.setItem('Score4AdditionEasy', localStorage.getItem('Score3AdditionEasy', gameScore));
+        localStorage.setItem('Score3AdditionEasy', localStorage.getItem('Score2AdditionEasy', gameScore));
+        localStorage.setItem('Score2AdditionEasy', localStorage.getItem('Score1AdditionEasy', gameScore));
+        localStorage.setItem('Score1AdditionEasy', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score2AdditionEasy') || localStorage.getItem('Score2AdditionEasy') == 'null') {
+        localStorage.setItem('Score5AdditionEasy', localStorage.getItem('Score4AdditionEasy', gameScore));
+        localStorage.setItem('Score4AdditionEasy', localStorage.getItem('Score3AdditionEasy', gameScore));
+        localStorage.setItem('Score3AdditionEasy', localStorage.getItem('Score2AdditionEasy', gameScore));
+        localStorage.setItem('Score2AdditionEasy', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score3AdditionEasy') || localStorage.getItem('Score3AdditionEasy') == 'null') {
+        localStorage.setItem('Score5AdditionEasy', localStorage.getItem('Score4AdditionEasy', gameScore));
+        localStorage.setItem('Score4AdditionEasy', localStorage.getItem('Score3AdditionEasy', gameScore));
+        localStorage.setItem('Score3AdditionEasy', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score4AdditionEasy') || localStorage.getItem('Score4AdditionEasy') == 'null') {
+        localStorage.setItem('Score5AdditionEasy', localStorage.getItem('Score4AdditionEasy', gameScore));
+        localStorage.setItem('Score4AdditionEasy', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score5AdditionEasy') || localStorage.getItem('Score5AdditionEasy') == 'null') {
+        localStorage.setItem('Score5AdditionEasy', gameScore);
+      }
+      localStorage.removeItem('currentScore');
+    } else if (num1 == 49) {
+      localStorage.setItem('currentScore', gameScore);
+      if (gameScore >= localStorage.getItem('Score1AdditionMedium') || localStorage.getItem('Score1AdditionMedium') == 'null') {
+        localStorage.setItem('Score5AdditionMedium', localStorage.getItem('Score4AdditionMedium', gameScore));
+        localStorage.setItem('Score4AdditionMedium', localStorage.getItem('Score3AdditionMedium', gameScore));
+        localStorage.setItem('Score3AdditionMedium', localStorage.getItem('Score2AdditionMedium', gameScore));
+        localStorage.setItem('Score2AdditionMedium', localStorage.getItem('Score1AdditionMedium', gameScore));
+        localStorage.setItem('Score1AdditionMedium', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score2AdditionMedium') || localStorage.getItem('Score2AdditionMedium') == 'null') {
+        localStorage.setItem('Score5AdditionMedium', localStorage.getItem('Score4AdditionMedium', gameScore));
+        localStorage.setItem('Score4AdditionMedium', localStorage.getItem('Score3AdditionMedium', gameScore));
+        localStorage.setItem('Score3AdditionMedium', localStorage.getItem('Score2AdditionMedium', gameScore));
+        localStorage.setItem('Score2AdditionMedium', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score3AdditionMedium') || localStorage.getItem('Score3AdditionMedium') == 'null') {
+        localStorage.setItem('Score5AdditionMedium', localStorage.getItem('Score4AdditionMedium', gameScore));
+        localStorage.setItem('Score4AdditionMedium', localStorage.getItem('Score3AdditionMedium', gameScore));
+        localStorage.setItem('Score3AdditionMedium', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score4AdditionMedium') || localStorage.getItem('Score4AdditionMedium') == 'null') {
+        localStorage.setItem('Score5AdditionMedium', localStorage.getItem('Score4AdditionMedium', gameScore));
+        localStorage.setItem('Score4AdditionMedium', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score5AdditionMedium') || localStorage.getItem('Score5AdditionMedium') == 'null') {
+        localStorage.setItem('Score5AdditionMedium', gameScore);
+      }
+      localStorage.removeItem('currentScore');
+    } else if (num1 == 99) {
+      localStorage.setItem('currentScore', gameScore);
+      if (gameScore >= localStorage.getItem('Score1AdditionHard') || localStorage.getItem('Score1AdditionHard') == 'null') {
+        localStorage.setItem('Score5AdditionHard', localStorage.getItem('Score4AdditionHard', gameScore));
+        localStorage.setItem('Score4AdditionHard', localStorage.getItem('Score3AdditionHard', gameScore));
+        localStorage.setItem('Score3AdditionHard', localStorage.getItem('Score2AdditionHard', gameScore));
+        localStorage.setItem('Score2AdditionHard', localStorage.getItem('Score1AdditionHard', gameScore));
+        localStorage.setItem('Score1AdditionHard', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score2AdditionHard') || localStorage.getItem('Score2AdditionHard') == 'null') {
+        localStorage.setItem('Score5AdditionHard', localStorage.getItem('Score4AdditionHard', gameScore));
+        localStorage.setItem('Score4AdditionHard', localStorage.getItem('Score3AdditionHard', gameScore));
+        localStorage.setItem('Score3AdditionHard', localStorage.getItem('Score2AdditionHard', gameScore));
+        localStorage.setItem('Score2AdditionHard', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score3AdditionHard') || localStorage.getItem('Score3AdditionHard') == 'null') {
+        localStorage.setItem('Score5AdditionHard', localStorage.getItem('Score4AdditionHard', gameScore));
+        localStorage.setItem('Score4AdditionHard', localStorage.getItem('Score3AdditionHard', gameScore));
+        localStorage.setItem('Score3AdditionHard', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score4AdditionHard') || localStorage.getItem('Score4AdditionHard') == 'null') {
+        localStorage.setItem('Score5AdditionHard', localStorage.getItem('Score4AdditionHard', gameScore));
+        localStorage.setItem('Score4AdditionHard', gameScore);
+      }
+      else if (gameScore >= localStorage.getItem('Score5AdditionHard') || localStorage.getItem('Score5AdditionHard') == 'null') {
+        localStorage.setItem('Score5AdditionHard', gameScore);
+      }
+      localStorage.removeItem('currentScore');
+    }
+  };
 };
 
 easyGame = () => {
