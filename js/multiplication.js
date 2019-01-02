@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     timer.style.display = 'flex';
     let timerContent = document.createElement('p');
     timerContent.style.fontSize = '20px';
-    timerContent.style.width = '40%';
+    timerContent.style.width = '30%';
     timerContent.style.background = 'white';
     timerContent.style.border = '2px solid black';
     timerContent.style.borderRadius = '20px';
@@ -27,9 +27,20 @@ document.addEventListener('DOMContentLoaded', () => {
     timerContent.style.margin = 'auto';
     timerContent.style.marginTop = '20px';
     timer.appendChild(timerContent);
+    let calculationDisplay = document.createElement('p');
+    calculationDisplay.style.fontSize = '20px';
+    calculationDisplay.style.width = '30%';
+    calculationDisplay.style.background = 'white';
+    calculationDisplay.style.border = '2px solid black';
+    calculationDisplay.style.borderRadius = '20px';
+    calculationDisplay.style.padding = '5px';
+    calculationDisplay.style.margin = 'auto';
+    calculationDisplay.style.marginTop = '20px';
+    calculationDisplay.innerHTML = 'Multiplication';
+    timer.appendChild(calculationDisplay);
     let difficultyDisplay = document.createElement('p');
     difficultyDisplay.style.fontSize = '20px';
-    difficultyDisplay.style.width = '40%';
+    difficultyDisplay.style.width = '30%';
     difficultyDisplay.style.background = 'white';
     difficultyDisplay.style.border = '2px solid black';
     difficultyDisplay.style.borderRadius = '20px';
@@ -100,13 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(gameStart, 3000);
 
     let number1 = parseInt(Math.random()*num1) + 1;
-    let number2 = parseInt(Math.random()*num2) + 1;
+    let number2 = parseInt(Math.random()*num2) + 2;
     let correctAnswer = number1 * number2;
     checker = () => {
       if (answerArea.value == correctAnswer) {
         gameScore++;
         let number1 = parseInt(Math.random()*num1) + 1;
-        let number2 = parseInt(Math.random()*num2) + 1;
+        let number2 = parseInt(Math.random()*num2) + 2;
         gameContent.innerHTML = `${number1} x ${number2}`;
         correctAnswer = number1 * number2;
         answerArea.value = '';
@@ -260,17 +271,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   easyGame = () => {
     content.parentNode.removeChild(content);
-    gamePlay(4, 4);
+    gamePlay(4, 3);
   };
 
   mediumGame = () => {
     content.parentNode.removeChild(content);
-    gamePlay(9, 9);
+    gamePlay(9, 8);
   };
 
   hardGame = () => {
     content.parentNode.removeChild(content);
-    gamePlay(19, 19);
+    gamePlay(19, 18);
   };
 
   easyDifficulty.addEventListener('click', easyGame);
