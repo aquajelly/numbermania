@@ -174,6 +174,7 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
   };
 
   gameOver = () => {
+    backgroundNormal();
     game.style.background = 'rgb(238, 250, 15)';
     gameContent.innerHTML = 'Well done! You scored:';
     scoreArea.innerHTML = `${gameScore}`;

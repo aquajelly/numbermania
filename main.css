@@ -50,11 +50,30 @@ body {
   width: 90%;
   display: flex;
   margin: auto;
+  border-top: 3px white solid;
+  border-bottom: 3px white solid;
 }
 
-.difficultySeparator {
+.difficultySeparatorLeft {
+  border-right: 1px white solid;
+}
+
+.difficultySeparatorCentre, .difficultySeparatorLeft, .difficultySeparatorRight {
   width: 30%;
   margin: auto;
+}
+
+.difficultySeparatorRight {
+  border-left: 1px white solid;
+}
+
+.difficultyTitle {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.finalScore {
+  margin-bottom: 16px;
 }
 
 ::placeholder {
