@@ -75,8 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scoreArea.style.marginTop = '80px';
     game.appendChild(scoreArea);
     let answerArea = document.createElement('input');
-    answerArea.setAttribute('type', 'text');
-    answerArea.setAttribute('placeholder', 'Click here to start typing!');
+    answerArea.setAttribute('type', 'number');
     answerArea.style.width = '80%';
     answerArea.style.marginTop = '60px';
     answerArea.style.fontSize = '30px';
@@ -90,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     body.insertBefore(game, button);
     timerContent.innerHTML = `Time Left: ${seconds}`;
     let correctAnswer;
+    answerArea.focus();
 
     ready = () => {
       gameContent.innerHTML = 'Ready...';
@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gameContent.innerHTML = 'Well done! You scored:';
       scoreArea.innerHTML = `${gameScore}`;
       answerArea.parentNode.removeChild(answerArea);
+      delete answerArea;
       let buttonArea = document.querySelector('.buttons');
 
       let newLinkForDifficulty = document.createElement('a');
