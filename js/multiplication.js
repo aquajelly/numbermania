@@ -75,8 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scoreArea.style.marginTop = '80px';
     game.appendChild(scoreArea);
     let answerArea = document.createElement('input');
-    answerArea.setAttribute('type', 'text');
-    answerArea.setAttribute('placeholder', 'Click here to start typing!');
+    answerArea.setAttribute('type', 'number');
     answerArea.style.width = '80%';
     answerArea.style.marginTop = '60px';
     answerArea.style.fontSize = '30px';
@@ -89,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     body.insertBefore(timer, button)
     body.insertBefore(game, button);
     timerContent.innerHTML = `Time Left: ${seconds}`;
+    answerArea.focus();
 
     ready = () => {
       gameContent.innerHTML = 'Ready...';
@@ -110,13 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(go, 2000);
     setTimeout(gameStart, 3000);
 
-    let number1 = parseInt(Math.random()*num1) + 1;
+    let number1 = parseInt(Math.random()*num1) + 2;
     let number2 = parseInt(Math.random()*num2) + 2;
     let correctAnswer = number1 * number2;
     checker = () => {
       if (answerArea.value == correctAnswer) {
         gameScore++;
-        let number1 = parseInt(Math.random()*num1) + 1;
+        let number1 = parseInt(Math.random()*num1) + 2;
         let number2 = parseInt(Math.random()*num2) + 2;
         gameContent.innerHTML = `${number1} x ${number2}`;
         correctAnswer = number1 * number2;
@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gameContent.innerHTML = 'Well done! You scored:';
       scoreArea.innerHTML = `${gameScore}`;
       answerArea.parentNode.removeChild(answerArea);
+      delete answerArea;
       let buttonArea = document.querySelector('.buttons');
 
       let newLinkForDifficulty = document.createElement('a');
@@ -272,17 +273,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   easyGame = () => {
     content.parentNode.removeChild(content);
-    gamePlay(4, 3);
+    gamePlay(4, 4);
   };
 
   mediumGame = () => {
     content.parentNode.removeChild(content);
-    gamePlay(9, 8);
+    gamePlay(9, 9);
   };
 
   hardGame = () => {
     content.parentNode.removeChild(content);
-    gamePlay(19, 18);
+    gamePlay(19, 19);
   };
 
   easyDifficulty.addEventListener('click', easyGame);

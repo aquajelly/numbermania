@@ -7,7 +7,7 @@ content = document.getElementsByClassName('content')[0];
 
 gamePlay = (num1, num2) => {
   let gameScore = 0;
-  let seconds = 30;
+  let seconds = 3;
   let multiplier1 = num1;
   let multiplier2 = num2;
   let timer = document.createElement('div');
@@ -75,8 +75,7 @@ gamePlay = (num1, num2) => {
   scoreArea.style.marginTop = '80px';
   game.appendChild(scoreArea);
   let answerArea = document.createElement('input');
-  answerArea.setAttribute('type', 'text');
-  answerArea.setAttribute('placeholder', 'Click here to start typing!');
+  answerArea.setAttribute('type', 'number');
   answerArea.style.width = '80%';
   answerArea.style.marginTop = '60px';
   answerArea.style.fontSize = '30px';
@@ -89,6 +88,7 @@ gamePlay = (num1, num2) => {
   body.insertBefore(timer, button);
   body.insertBefore(game, button);
   timerContent.innerHTML = `Time Left: ${seconds}`;
+  answerArea.focus();
 
   ready = () => {
     gameContent.innerHTML = 'Ready...';
@@ -149,6 +149,7 @@ gamePlay = (num1, num2) => {
     gameContent.innerHTML = 'Well done! You scored:';
     scoreArea.innerHTML = `${gameScore}`;
     answerArea.parentNode.removeChild(answerArea);
+    delete answerArea;
     let buttonArea = document.querySelector('.buttons');
 
     let newLinkForDifficulty = document.createElement('a');

@@ -75,8 +75,7 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
   scoreArea.style.marginTop = '80px';
   game.appendChild(scoreArea);
   let answerArea = document.createElement('input');
-  answerArea.setAttribute('type', 'text');
-  answerArea.setAttribute('placeholder', 'Click here to start typing!');
+  answerArea.setAttribute('type', 'number');
   answerArea.style.width = '80%';
   answerArea.style.marginTop = '60px';
   answerArea.style.fontSize = '30px';
@@ -89,6 +88,7 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
   body.insertBefore(timer, button);
   body.insertBefore(game, button);
   timerContent.innerHTML = `Time Left: ${seconds}`;
+  answerArea.focus();
 
   ready = () => {
     gameContent.innerHTML = 'Ready...';
@@ -118,7 +118,7 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
   calculationChooser = () => {
     let number1 = parseInt(Math.random()*num1) + 1;
     let number2 = parseInt(Math.random()*num2) + 1;
-    let number3 = parseInt(Math.random()*num3) + 1;
+    let number3 = parseInt(Math.random()*num3) + 2;
     let number4 = parseInt(Math.random()*num4) + 2;
     let randomNum = parseInt(Math.random()*4) + 1;
     if (randomNum == 1) {
@@ -179,6 +179,7 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
     gameContent.innerHTML = 'Well done! You scored:';
     scoreArea.innerHTML = `${gameScore}`;
     answerArea.parentNode.removeChild(answerArea);
+    delete answerArea;
     let buttonArea = document.querySelector('.buttons');
 
     let newLinkForDifficulty = document.createElement('a');
@@ -204,11 +205,11 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
       buttonArea.removeChild(newLinkForDifficulty);
       buttonArea.removeChild(newButtonForReplay);
       if (num1 == 19) {
-        gamePlay(19, 19);
+        gamePlay(19, 19, 4, 4, 49, 3);
       } else if (num1 == 49) {
-        gamePlay(49, 49);
+        gamePlay(49, 49, 9, 9, 99, 18);
       } else if (num1 == 99) {
-        gamePlay(99, 99);
+        gamePlay(99, 99, 19, 19, 199, 48);
       }
     };
     newButtonForReplay.addEventListener('click', replayTypeDecider);
@@ -303,17 +304,17 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
 
 easyGame = () => {
   content.parentNode.removeChild(content);
-  gamePlay(19, 19, 4, 3, 49, 3);
+  gamePlay(19, 19, 4, 4, 49, 3);
 };
 
 mediumGame = () => {
   content.parentNode.removeChild(content);
-  gamePlay(49, 49, 9, 8, 99, 18);
+  gamePlay(49, 49, 9, 9, 99, 18);
 };
 
 hardGame = () => {
   content.parentNode.removeChild(content);
-  gamePlay(99, 99, 19, 18, 199, 48);
+  gamePlay(99, 99, 19, 19, 199, 48);
 };
 
 easyDifficulty.addEventListener('click', easyGame);
