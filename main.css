@@ -80,6 +80,12 @@ body {
   color: black;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media screen and (max-width: 300px) {
   .header-title {
     width: 100%;
