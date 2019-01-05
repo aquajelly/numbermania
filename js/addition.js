@@ -7,7 +7,7 @@ content = document.getElementsByClassName('content')[0];
 
 gamePlay = (num1, num2) => {
   let gameScore = 0;
-  let seconds = 3;
+  let seconds = 30;
   let multiplier1 = num1;
   let multiplier2 = num2;
   let timer = document.createElement('div');
