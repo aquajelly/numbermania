@@ -56,25 +56,139 @@ gamePlay = (num1, num2) => {
   game.style.textAlign = 'center';
   game.style.margin = 'auto';
   game.style.marginTop = '20px';
-  game.style.marginBottom = '20px';
+  game.style.marginBottom = '10px';
   game.style.borderRadius = '20px';
   let gameContent = document.createElement('p');
-  gameContent.style.paddingTop = '40px';
   gameContent.style.fontSize = '40px';
   game.appendChild(gameContent);
-  let scoreArea = document.createElement('p');
-  scoreArea.style.fontSize = '40px';
-  scoreArea.style.marginTop = '80px';
-  game.appendChild(scoreArea);
-  let answerArea = document.createElement('input');
-  answerArea.setAttribute('type', 'number');
+
+  let submittedAnswer = '';
+  let answerArea = document.createElement('p');
+  displayAnswer = () => {
+    answerArea.innerHTML = `${submittedAnswer}`;
+  }
+  setInterval(displayAnswer, 10);
+  answerArea.style.margin = 'auto';
+  answerArea.style.height = '1em';
+  answerArea.style.padding = '0.2em';
   answerArea.style.width = '80%';
-  answerArea.style.marginTop = '60px';
-  answerArea.style.marginBottom = '50px';
   answerArea.style.textAlign = 'center';
   answerArea.style.background = 'rgb(2, 212, 167)';
   answerArea.style.border = '3px solid black';
   game.appendChild(answerArea);
+  let answerButtonsArea = document.createElement('div');
+  answerButtonsArea.className = 'buttons';
+  answerButtonsArea.style.textAlign = 'center';
+  let answerButtonsArea1 = document.createElement('div');
+  let answerButtonsArea2 = document.createElement('div');
+  let answerButtonsArea3 = document.createElement('div');
+  answerButtonsArea.appendChild(answerButtonsArea1);
+  answerButtonsArea.appendChild(answerButtonsArea2);
+  answerButtonsArea.appendChild(answerButtonsArea3);
+  addNumber = (number) => {
+    if (number <= 9) {
+      submittedAnswer += number;
+    } else if (number == 10) {
+      submittedAnswer += '-';
+    } else if (number == 11) {
+      submittedAnswer = submittedAnswer.substr(0, submittedAnswer.length-1);
+    } else {
+      submittedAnswer = '';
+    }
+  }
+  let answerZero = document.createElement('button');
+  answerZero.setAttribute('class', 'answerButtons');
+  answerZero.setAttribute('type', 'button');
+  answerZero.innerHTML = '0';
+  answerZero.style.margin = '5px';
+  answerZero.addEventListener('click', function() {addNumber(0)});
+  answerButtonsArea1.appendChild(answerZero);
+  let answerOne = document.createElement('button');
+  answerOne.setAttribute('class', 'answerButtons');
+  answerOne.setAttribute('type', 'button');
+  answerOne.innerHTML = '1';
+  answerOne.style.margin = '5px';
+  answerOne.addEventListener('click', function() {addNumber(1)});
+  answerButtonsArea1.appendChild(answerOne);
+  let answerTwo = document.createElement('button');
+  answerTwo.setAttribute('class', 'answerButtons');
+  answerTwo.setAttribute('type', 'button');
+  answerTwo.innerHTML = '2';
+  answerTwo.style.margin = '5px';
+  answerTwo.addEventListener('click', function() {addNumber(2)});
+  answerButtonsArea1.appendChild(answerTwo);
+  let answerThree = document.createElement('button');
+  answerThree.setAttribute('class', 'answerButtons');
+  answerThree.setAttribute('type', 'button');
+  answerThree.innerHTML = '3';
+  answerThree.style.margin = '5px';
+  answerThree.addEventListener('click', function() {addNumber(3)});
+  answerButtonsArea1.appendChild(answerThree);
+  let answerFour = document.createElement('button');
+  answerFour.setAttribute('class', 'answerButtons');
+  answerFour.setAttribute('type', 'button');
+  answerFour.innerHTML = '4';
+  answerFour.style.margin = '5px';
+  answerFour.addEventListener('click', function() {addNumber(4)});
+  answerButtonsArea1.appendChild(answerFour);
+  let answerFive = document.createElement('button');
+  answerFive.setAttribute('class', 'answerButtons');
+  answerFive.setAttribute('type', 'button');
+  answerFive.innerHTML = '5';
+  answerFive.style.margin = '5px';
+  answerFive.addEventListener('click', function() {addNumber(5)});
+  answerButtonsArea2.appendChild(answerFive);
+  let answerSix = document.createElement('button');
+  answerSix.setAttribute('class', 'answerButtons');
+  answerSix.setAttribute('type', 'button');
+  answerSix.innerHTML = '6';
+  answerSix.style.margin = '5px';
+  answerSix.addEventListener('click', function() {addNumber(6)});
+  answerButtonsArea2.appendChild(answerSix);
+  let answerSeven = document.createElement('button');
+  answerSeven.setAttribute('class', 'answerButtons');
+  answerSeven.setAttribute('type', 'button');
+  answerSeven.innerHTML = '7';
+  answerSeven.style.margin = '5px';
+  answerSeven.addEventListener('click', function() {addNumber(7)});
+  answerButtonsArea2.appendChild(answerSeven);
+  let answerEight = document.createElement('button');
+  answerEight.setAttribute('class', 'answerButtons');
+  answerEight.setAttribute('type', 'button');
+  answerEight.innerHTML = '8';
+  answerEight.style.margin = '5px';
+  answerEight.addEventListener('click', function() {addNumber(8)});
+  answerButtonsArea2.appendChild(answerEight);
+  let answerNine = document.createElement('button');
+  answerNine.setAttribute('class', 'answerButtons');
+  answerNine.setAttribute('type', 'button');
+  answerNine.innerHTML = '9';
+  answerNine.style.margin = '5px';
+  answerNine.addEventListener('click', function() {addNumber(9)});
+  answerButtonsArea2.appendChild(answerNine);
+  let answerMinus = document.createElement('button');
+  answerMinus.setAttribute('class', 'answerButtons');
+  answerMinus.setAttribute('type', 'button');
+  answerMinus.innerHTML = '-';
+  answerMinus.style.margin = '5px';
+  answerMinus.addEventListener('click', function() {addNumber(10)});
+  answerButtonsArea3.appendChild(answerMinus);
+  let answerDelete = document.createElement('button');
+  answerDelete.setAttribute('class', 'deleteButton');
+  answerDelete.setAttribute('type', 'button');
+  answerDelete.innerHTML = 'Delete';
+  answerDelete.style.margin = '5px';
+  answerDelete.addEventListener('click', function() {addNumber(11)});
+  answerButtonsArea3.appendChild(answerDelete);
+  let answerClear = document.createElement('button');
+  answerClear.setAttribute('class', 'clearButton');
+  answerClear.setAttribute('type', 'button');
+  answerClear.innerHTML = 'Clear';
+  answerClear.style.margin = '5px';
+  answerClear.addEventListener('click', function() {addNumber(12)});
+  answerButtonsArea3.appendChild(answerClear);
+  game.appendChild(answerButtonsArea);
+
   let body = document.querySelector('body');
   let button = document.querySelector('div');
   body.insertBefore(timer, button);
@@ -92,6 +206,7 @@ gamePlay = (num1, num2) => {
       gameContent.style.fontSize = '5vw';
       game.style.height = '50%';
       answerArea.style.fontSize = '5vw';
+      answerButtonsArea.style.fontSize = '5vw';
     } else {
       game.style.width = '60%';
       timer.style.width = '90%';
@@ -100,6 +215,7 @@ gamePlay = (num1, num2) => {
       difficultyDisplay.style.fontSize = '20px';
       gameContent.style.fontSize = '40px';
       answerArea.style.fontSize = '30px';
+      answerButtonsArea.style.fontSize = '30px';
     }
   }
   let windowSize = window.matchMedia("(max-width: 600px)");
@@ -130,13 +246,13 @@ gamePlay = (num1, num2) => {
   let number2 = parseInt(Math.random()*num2) + 1;
   let correctAnswer = number1 + number2;
   checker = () => {
-    if (answerArea.value == correctAnswer) {
+    if (submittedAnswer == correctAnswer) {
       gameScore++;
       let number1 = parseInt(Math.random()*num1) + 1;
       let number2 = parseInt(Math.random()*num2) + 1;
       gameContent.innerHTML = `${number1} + ${number2}`;
       correctAnswer = number1 + number2;
-      answerArea.value = '';
+      submittedAnswer = '';
       game.style.background = 'rgb(33, 245, 22)';
       setTimeout(backgroundNormal, 250);
     };
@@ -163,7 +279,8 @@ gamePlay = (num1, num2) => {
     backgroundNormal();
     game.style.background = 'rgb(238, 250, 15)';
     gameContent.innerHTML = 'Well done! You scored:';
-    scoreArea.innerHTML = `${gameScore}`;
+    answerButtonsArea.innerHTML = `${gameScore}`;
+    answerButtonsArea.style.paddingBottom = '20px';
     answerArea.parentNode.removeChild(answerArea);
     delete answerArea;
 
