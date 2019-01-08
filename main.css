@@ -36,9 +36,51 @@ body {
   margin-bottom: 5px;
 }
 
-.gameType:hover {
+.answerButtons {
+  background-color: rgb(208, 241, 158);
+  border: 2px solid black;
+  font-size: 20px;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  margin-bottom: 5px;
+  border-radius: 15px;
+}
+
+.deleteButton {
+  background-color: rgb(255, 0, 0);
+  border: 2px solid black;
+  font-size: 20px;
+  padding: 10px;
+  height: 50px;
+  width: 110px;
+  text-align: center;
+  margin-bottom: 5px;
+  border-radius: 15px;
+}
+
+.clearButton {
+  background-color: black;
+  color: red;
+  border: 2px solid black;
+  font-size: 20px;
+  padding: 10px;
+  height: 50px;
+  width: 110px;
+  text-align: center;
+  margin-bottom: 5px;
+  border-radius: 15px;
+}
+
+.gameType:hover, .answerButtons:hover {
   background-color: rgb(242, 123, 64);
   color: white;
+}
+
+.deleteButton:hover, .clearButton:hover {
+  background-color: rgb(240, 145, 20);
+  color: black;
 }
 
 .intro {
@@ -127,5 +169,17 @@ input[type=number]::-webkit-outer-spin-button {
   }
   .gameClass, .gameHeaders {
     width: 90%;
+  }
+  .answerButtons {
+    width: 12%;
+    height: 12%;
+    font-size: 4vw;
+    padding: 0px;
+  }
+  .deleteButton, .clearButton {
+    width: 27%;
+    height: 12%;
+    font-size: 4vw;
+    padding: 0px;
   }
 }
