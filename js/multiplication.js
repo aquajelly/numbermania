@@ -85,16 +85,16 @@ document.addEventListener('DOMContentLoaded', () => {
     mediaQuery = (windowSize) => {
       if (windowSize.matches) {
         game.style.width = '90%';
-        timer.style.width = '90%';
-        timerContent.style.fontSize = '3vw';
-        calculationDisplay.style.fontSize = '3vw';
-        difficultyDisplay.style.fontSize = '3vw';
+        timer.style.width = '100%';
+        timerContent.style.fontSize = '2.6vw';
+        calculationDisplay.style.fontSize = '2.6vw';
+        difficultyDisplay.style.fontSize = '2.6vw';
         gameContent.style.fontSize = '5vw';
         game.style.height = '50%';
         answerArea.style.fontSize = '5vw';
       } else {
         game.style.width = '60%';
-        timer.style.width = '60%';
+        timer.style.width = '90%';
         timerContent.style.fontSize = '20px';
         calculationDisplay.style.fontSize = '20px';
         difficultyDisplay.style.fontSize = '20px';
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         answerArea.style.fontSize = '30px';
       }
     }
-    let windowSize = window.matchMedia("(max-width: 500px)");
+    let windowSize = window.matchMedia("(max-width: 600px)");
     mediaQuery(windowSize);
     windowSize.addListener(mediaQuery);
 

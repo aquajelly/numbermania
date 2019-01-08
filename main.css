@@ -33,6 +33,7 @@ body {
   padding: 10px;
   width: 200px;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .gameType:hover {
@@ -81,6 +82,15 @@ body {
   margin-bottom: 16px;
 }
 
+.howToPlay {
+  width: 80%;
+  margin: auto;
+}
+
+.whiteText {
+  color: white;
+}
+
 ::placeholder {
   color: black;
 }
@@ -105,7 +115,6 @@ input[type=number]::-webkit-outer-spin-button {
   .gameType {
     width: 50%;
     font-size: 4vw;
-    margin-bottom: 2px;
   }
   .footer-title {
     font-size: 5vw;
