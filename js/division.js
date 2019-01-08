@@ -8,17 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
   gamePlay = (num1, num2) => {
     let gameScore = 0;
     let seconds = 30;
-    let multiplier1 = num1;
-    let multiplier2 = num2;
     let timer = document.createElement('div');
     timer.style.textAlign = 'center';
     timer.style.marginTop = '20px';
     timer.style.marginBottom = '20px';
-    timer.style.width = '60%';
     timer.style.margin = 'auto';
     timer.style.display = 'flex';
     let timerContent = document.createElement('p');
-    timerContent.style.fontSize = '20px';
     timerContent.style.width = '30%';
     timerContent.style.background = 'white';
     timerContent.style.border = '2px solid black';
@@ -28,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     timerContent.style.marginTop = '20px';
     timer.appendChild(timerContent);
     let calculationDisplay = document.createElement('p');
-    calculationDisplay.style.fontSize = '20px';
     calculationDisplay.style.width = '30%';
     calculationDisplay.style.background = 'white';
     calculationDisplay.style.border = '2px solid black';
@@ -39,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     calculationDisplay.innerHTML = 'Division';
     timer.appendChild(calculationDisplay);
     let difficultyDisplay = document.createElement('p');
-    difficultyDisplay.style.fontSize = '20px';
     difficultyDisplay.style.width = '30%';
     difficultyDisplay.style.background = 'white';
     difficultyDisplay.style.border = '2px solid black';
@@ -57,8 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     timer.appendChild(difficultyDisplay);
     let game = document.createElement('div');
     game.className = 'gameClass';
-    game.style.height = '350px';
-    game.style.width = '60%';
     game.style.background = 'white';
     game.style.border = '5px solid black';
     game.style.textAlign = 'center';
@@ -78,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     answerArea.setAttribute('type', 'number');
     answerArea.style.width = '80%';
     answerArea.style.marginTop = '60px';
-    answerArea.style.fontSize = '30px';
+    answerArea.style.marginBottom = '50px';
     answerArea.style.textAlign = 'center';
     answerArea.style.background = 'rgb(2, 212, 167)';
     answerArea.style.border = '3px solid black';
@@ -90,6 +82,30 @@ document.addEventListener('DOMContentLoaded', () => {
     timerContent.innerHTML = `Time Left: ${seconds}`;
     let correctAnswer;
     answerArea.focus();
+
+    mediaQuery = (windowSize) => {
+      if (windowSize.matches) {
+        game.style.width = '90%';
+        timer.style.width = '90%';
+        timerContent.style.fontSize = '3vw';
+        calculationDisplay.style.fontSize = '3vw';
+        difficultyDisplay.style.fontSize = '3vw';
+        gameContent.style.fontSize = '5vw';
+        game.style.height = '50%';
+        answerArea.style.fontSize = '5vw';
+      } else {
+        game.style.width = '60%';
+        timer.style.width = '60%';
+        timerContent.style.fontSize = '20px';
+        calculationDisplay.style.fontSize = '20px';
+        difficultyDisplay.style.fontSize = '20px';
+        gameContent.style.fontSize = '40px';
+        answerArea.style.fontSize = '30px';
+      }
+    }
+    let windowSize = window.matchMedia("(max-width: 500px)");
+    mediaQuery(windowSize);
+    windowSize.addListener(mediaQuery);
 
     ready = () => {
       gameContent.innerHTML = 'Ready...';
@@ -158,23 +174,30 @@ document.addEventListener('DOMContentLoaded', () => {
       scoreArea.innerHTML = `${gameScore}`;
       answerArea.parentNode.removeChild(answerArea);
       delete answerArea;
-      let buttonArea = document.querySelector('.buttons');
 
-      let newLinkForDifficulty = document.createElement('a');
-      newLinkForDifficulty.setAttribute('href', 'division.html');
-      let newButtonForDifficulty = document.createElement('button');
-      newButtonForDifficulty.setAttribute('class', 'gameType weirdButtonThing');
-      newButtonForDifficulty.setAttribute('type', 'button');
-      newButtonForDifficulty.innerHTML = 'Change Difficulty';
-      newLinkForDifficulty.appendChild(newButtonForDifficulty);
+      let buttonArea = document.createElement('div');
+      buttonArea.className = 'buttons';
+      buttonArea.style.textAlign = 'center';
 
       let newButtonForReplay = document.createElement('button');
       newButtonForReplay.setAttribute('class', 'gameType');
       newButtonForReplay.setAttribute('type', 'button');
       newButtonForReplay.innerHTML = 'Play Again';
+      newButtonForReplay.style.margin = '5px';
 
-      buttonArea.appendChild(newLinkForDifficulty);
+      let newLinkForDifficulty = document.createElement('a');
+      newLinkForDifficulty.setAttribute('href', 'addition.html');
+      let newButtonForDifficulty = document.createElement('button');
+      newButtonForDifficulty.setAttribute('class', 'gameType');
+      newButtonForDifficulty.setAttribute('type', 'button');
+      newButtonForDifficulty.innerHTML = 'Change Difficulty';
+      newButtonForDifficulty.style.margin = '5px';
+      newLinkForDifficulty.appendChild(newButtonForDifficulty);
+
       buttonArea.appendChild(newButtonForReplay);
+      buttonArea.appendChild(newLinkForDifficulty);
+
+      body.insertBefore(buttonArea, button);
 
       replayTypeDecider = () => {
         game.parentNode.removeChild(game);
