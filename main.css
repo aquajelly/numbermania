@@ -1,19 +1,23 @@
 body {
   background-color: rgb(2, 212, 167);
 }
+
 .header {
   text-align: center;
   border: 5px solid black;
   border-radius: 10px;
   background-color: rgb(122, 159, 240);
 }
+
 .footer {
   text-align: center;
   border-top: 2px solid black;
 }
+
 .content, .homeButton {
   text-align: center;
 }
+
 .buttons {
   width: 100%;
   margin: auto;
@@ -21,6 +25,7 @@ body {
   margin: 20px 0px;
   font-family: arial;
 }
+
 .gameType {
   background-color: rgb(208, 241, 158);
   border: 2px solid black;
@@ -36,7 +41,7 @@ body {
 }
 
 .intro {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .homepage1, .homepage2 {
@@ -86,14 +91,32 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 500px) {
   .header-title {
     width: 100%;
-    font-size: 20px;
+    font-size: 6vw;
   }
-}
-@media screen and (min-width: 421px) {
-  .weirdButtonThing {
-    margin-right: 5px;
+  .intro {
+    font-size: 5vw;
+  }
+  .homepage1, .homepage2 {
+    font-size: 4vw;
+  }
+  .gameType {
+    width: 50%;
+    font-size: 4vw;
+    margin-bottom: 2px;
+  }
+  .footer-title {
+    font-size: 5vw;
+  }
+  .difficultyTitle {
+    font-size: 3vw;
+  }
+  .scoresDisplay {
+    font-size: 2vw;
+  }
+  .gameClass, .gameHeaders {
+    width: 90%;
   }
 }
