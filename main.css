@@ -48,7 +48,7 @@ body {
 }
 
 .deleteButton {
-  background-color: rgb(255, 0, 0);
+  background-color: red;
   border: 2px solid black;
   font-size: 20px;
   height: 40px;
@@ -184,5 +184,25 @@ button:focus {
     font-size: 4vw;
     padding: 0px;
     margin: 1vw;
+  }
+  .gameType:hover, .answerButtons:hover {
+    background-color: rgb(208, 241, 158);
+    color: black;
+  }
+  .deleteButton:hover {
+    background-color: red;
+    color: black;
+  }
+  .clearButton:hover {
+    background-color: black;
+    color: red;
+  }
+  .gameType:active, .answerButtons:active {
+    background-color: rgb(242, 123, 64);
+    color: white;
+  }
+  .deleteButton:active, .clearButton:active {
+    background-color: rgb(240, 145, 20);
+    color: black;
   }
 }

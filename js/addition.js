@@ -277,7 +277,6 @@ gamePlay = (num1, num2) => {
 
   gameOver = () => {
     backgroundNormal();
-    game.style.background = 'rgb(238, 250, 15)';
     gameContent.innerHTML = 'Well done! You scored:';
     answerButtonsArea.innerHTML = `${gameScore}`;
     answerButtonsArea.style.paddingBottom = '20px';
