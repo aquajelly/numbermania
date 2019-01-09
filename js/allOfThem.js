@@ -82,111 +82,109 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
   let answerButtonsArea1 = document.createElement('div');
   let answerButtonsArea2 = document.createElement('div');
   let answerButtonsArea3 = document.createElement('div');
+  let answerButtonsArea4 = document.createElement('div');
+  let answerButtonsArea5 = document.createElement('div');
   answerButtonsArea.appendChild(answerButtonsArea1);
   answerButtonsArea.appendChild(answerButtonsArea2);
   answerButtonsArea.appendChild(answerButtonsArea3);
+  answerButtonsArea.appendChild(answerButtonsArea4);
+  answerButtonsArea.appendChild(answerButtonsArea5);
   addNumber = (number) => {
-    if (number <= 9) {
-      submittedAnswer += number;
-    } else if (number == 10) {
-      submittedAnswer += '-';
-    } else if (number == 11) {
+    if (submittedAnswer.length < 5) {
+      if (number <= 9) {
+        submittedAnswer += number;
+      } else if (number == 10) {
+        submittedAnswer += '-';
+      }
+    }
+    if (number == 11) {
       submittedAnswer = submittedAnswer.substr(0, submittedAnswer.length-1);
-    } else {
+    } else if (number == 12){
       submittedAnswer = '';
     }
   }
   let answerZero = document.createElement('button');
+  // const answers = document.getElementById('button-array')
+  // answers.map(button => {
+  //   button.setAttribute('class', 'answerButton')
+  // })
   answerZero.setAttribute('class', 'answerButtons');
   answerZero.setAttribute('type', 'button');
   answerZero.innerHTML = '0';
-  answerZero.style.margin = '5px';
   answerZero.addEventListener('click', function() {addNumber(0)});
-  answerButtonsArea1.appendChild(answerZero);
+  answerButtonsArea4.appendChild(answerZero);
   let answerOne = document.createElement('button');
   answerOne.setAttribute('class', 'answerButtons');
   answerOne.setAttribute('type', 'button');
   answerOne.innerHTML = '1';
-  answerOne.style.margin = '5px';
   answerOne.addEventListener('click', function() {addNumber(1)});
-  answerButtonsArea1.appendChild(answerOne);
+  answerButtonsArea3.appendChild(answerOne);
   let answerTwo = document.createElement('button');
   answerTwo.setAttribute('class', 'answerButtons');
   answerTwo.setAttribute('type', 'button');
   answerTwo.innerHTML = '2';
-  answerTwo.style.margin = '5px';
   answerTwo.addEventListener('click', function() {addNumber(2)});
-  answerButtonsArea1.appendChild(answerTwo);
+  answerButtonsArea3.appendChild(answerTwo);
   let answerThree = document.createElement('button');
   answerThree.setAttribute('class', 'answerButtons');
   answerThree.setAttribute('type', 'button');
   answerThree.innerHTML = '3';
-  answerThree.style.margin = '5px';
   answerThree.addEventListener('click', function() {addNumber(3)});
-  answerButtonsArea1.appendChild(answerThree);
+  answerButtonsArea3.appendChild(answerThree);
   let answerFour = document.createElement('button');
   answerFour.setAttribute('class', 'answerButtons');
   answerFour.setAttribute('type', 'button');
   answerFour.innerHTML = '4';
-  answerFour.style.margin = '5px';
   answerFour.addEventListener('click', function() {addNumber(4)});
-  answerButtonsArea1.appendChild(answerFour);
+  answerButtonsArea2.appendChild(answerFour);
   let answerFive = document.createElement('button');
   answerFive.setAttribute('class', 'answerButtons');
   answerFive.setAttribute('type', 'button');
   answerFive.innerHTML = '5';
-  answerFive.style.margin = '5px';
   answerFive.addEventListener('click', function() {addNumber(5)});
   answerButtonsArea2.appendChild(answerFive);
   let answerSix = document.createElement('button');
   answerSix.setAttribute('class', 'answerButtons');
   answerSix.setAttribute('type', 'button');
   answerSix.innerHTML = '6';
-  answerSix.style.margin = '5px';
   answerSix.addEventListener('click', function() {addNumber(6)});
   answerButtonsArea2.appendChild(answerSix);
   let answerSeven = document.createElement('button');
   answerSeven.setAttribute('class', 'answerButtons');
   answerSeven.setAttribute('type', 'button');
   answerSeven.innerHTML = '7';
-  answerSeven.style.margin = '5px';
   answerSeven.addEventListener('click', function() {addNumber(7)});
-  answerButtonsArea2.appendChild(answerSeven);
+  answerButtonsArea1.appendChild(answerSeven);
   let answerEight = document.createElement('button');
   answerEight.setAttribute('class', 'answerButtons');
   answerEight.setAttribute('type', 'button');
   answerEight.innerHTML = '8';
-  answerEight.style.margin = '5px';
   answerEight.addEventListener('click', function() {addNumber(8)});
-  answerButtonsArea2.appendChild(answerEight);
+  answerButtonsArea1.appendChild(answerEight);
   let answerNine = document.createElement('button');
   answerNine.setAttribute('class', 'answerButtons');
   answerNine.setAttribute('type', 'button');
   answerNine.innerHTML = '9';
-  answerNine.style.margin = '5px';
   answerNine.addEventListener('click', function() {addNumber(9)});
-  answerButtonsArea2.appendChild(answerNine);
+  answerButtonsArea1.appendChild(answerNine);
   let answerMinus = document.createElement('button');
   answerMinus.setAttribute('class', 'answerButtons');
   answerMinus.setAttribute('type', 'button');
   answerMinus.innerHTML = '-';
-  answerMinus.style.margin = '5px';
   answerMinus.addEventListener('click', function() {addNumber(10)});
-  answerButtonsArea3.appendChild(answerMinus);
+  answerButtonsArea5.appendChild(answerMinus);
   let answerDelete = document.createElement('button');
   answerDelete.setAttribute('class', 'deleteButton');
   answerDelete.setAttribute('type', 'button');
   answerDelete.innerHTML = 'Delete';
-  answerDelete.style.margin = '5px';
   answerDelete.addEventListener('click', function() {addNumber(11)});
-  answerButtonsArea3.appendChild(answerDelete);
+  answerButtonsArea4.appendChild(answerDelete);
   let answerClear = document.createElement('button');
   answerClear.setAttribute('class', 'clearButton');
   answerClear.setAttribute('type', 'button');
   answerClear.innerHTML = 'Clear';
-  answerClear.style.margin = '5px';
   answerClear.addEventListener('click', function() {addNumber(12)});
-  answerButtonsArea3.appendChild(answerClear);
+  answerButtonsArea5.appendChild(answerClear);
   game.appendChild(answerButtonsArea);
 
   let body = document.querySelector('body');

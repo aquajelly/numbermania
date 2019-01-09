@@ -40,11 +40,10 @@ body {
   background-color: rgb(208, 241, 158);
   border: 2px solid black;
   font-size: 20px;
-  padding: 10px;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 40px;
   text-align: center;
-  margin-bottom: 5px;
+  margin: 5px;
   border-radius: 15px;
 }
 
@@ -52,11 +51,10 @@ body {
   background-color: rgb(255, 0, 0);
   border: 2px solid black;
   font-size: 20px;
-  padding: 10px;
-  height: 50px;
-  width: 110px;
+  height: 40px;
+  width: 210px;
   text-align: center;
-  margin-bottom: 5px;
+  margin: 5px;
   border-radius: 15px;
 }
 
@@ -65,11 +63,10 @@ body {
   color: red;
   border: 2px solid black;
   font-size: 20px;
-  padding: 10px;
-  height: 50px;
-  width: 110px;
+  height: 40px;
+  width: 210px;
   text-align: center;
-  margin-bottom: 5px;
+  margin: 5px;
   border-radius: 15px;
 }
 
@@ -143,6 +140,10 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+button:focus {
+  outline: 0;
+}
+
 @media screen and (max-width: 500px) {
   .header-title {
     width: 100%;
@@ -171,15 +172,17 @@ input[type=number]::-webkit-outer-spin-button {
     width: 90%;
   }
   .answerButtons {
-    width: 12%;
-    height: 12%;
+    width: 20%;
+    height: 10vw;
     font-size: 4vw;
     padding: 0px;
+    margin: 1vw;
   }
   .deleteButton, .clearButton {
-    width: 27%;
-    height: 12%;
+    width: 42%;
+    height: 10vw;
     font-size: 4vw;
     padding: 0px;
+    margin: 1vw;
   }
 }
