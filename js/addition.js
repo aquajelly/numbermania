@@ -238,7 +238,7 @@ gamePlay = (num1, num2) => {
 
   gameOverDisplay = () => {
     const container = document.querySelector('.container');
-    container.appendChild(homeButton);
+    homeButton.classList.toggle('fadeIn');
     const buttonArea = document.createElement('div');
     buttonArea.className = 'buttons';
     buttonArea.style.textAlign = 'center';
@@ -263,6 +263,13 @@ gamePlay = (num1, num2) => {
     buttonArea.appendChild(newLinkForDifficulty);
 
     body.insertBefore(buttonArea, button);
+    buttonArea.classList.add('disappear');
+
+    fadeForReplayButtons = () => {
+      buttonArea.classList.toggle('fadeIn');
+      homeButton.classList.remove('disappear', 'fadeIn');
+    }
+    setTimeout(fadeForReplayButtons, 500);
 
     replayTypeDecider = () => {
       game.parentNode.removeChild(game);
@@ -330,7 +337,7 @@ gamePlay = (num1, num2) => {
     answerButtonsArea.style.paddingBottom = '20px';
     answerArea.parentNode.removeChild(answerArea);
     delete answerArea;
-    homeButton.parentNode.removeChild(homeButton);
+    homeButton.classList.add('disappear');
 
     setTimeout(gameOverDisplay, 1000);
 
