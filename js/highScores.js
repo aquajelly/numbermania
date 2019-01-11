@@ -2,623 +2,112 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const topScores = new Object();
 
-  topScores.current1 = localStorage.getItem('Score1AdditionEasy');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1AdditionEasy = document.getElementsByClassName('topScoreAdditionEasy')[0];
-    topScores.currentScore1AdditionEasy.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1AdditionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2AdditionEasy');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2AdditionEasy = document.getElementsByClassName('secondScoreAdditionEasy')[0];
-    topScores.currentScore2AdditionEasy.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2AdditionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3AdditionEasy');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3AdditionEasy = document.getElementsByClassName('thirdScoreAdditionEasy')[0];
-    topScores.currentScore3AdditionEasy.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3AdditionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4AdditionEasy');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4AdditionEasy = document.getElementsByClassName('fourthScoreAdditionEasy')[0];
-    topScores.currentScore4AdditionEasy.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4AdditionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5AdditionEasy');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5AdditionEasy = document.getElementsByClassName('fifthScoreAdditionEasy')[0];
-    topScores.currentScore5AdditionEasy.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5AdditionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
+  scoreDesign = (current, score, currentScore, className, suffix) => {
+    current = localStorage.getItem(score);
+    if (current != null && current != 'null') {
+      currentScore = document.getElementsByClassName(className)[0];
+      currentScore.innerHTML = `${current}`;
+    } else {
+      topScores.scoreSuffix = document.getElementsByClassName(suffix)[0];
+      topScores.scoreSuffix.innerHTML = 'None';
+    }
   }
 
-  topScores.current1 = localStorage.getItem('Score1AdditionMedium');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1AdditionMedium = document.getElementsByClassName('topScoreAdditionMedium')[0];
-    topScores.currentScore1AdditionMedium.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1AdditionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2AdditionMedium');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2AdditionMedium = document.getElementsByClassName('secondScoreAdditionMedium')[0];
-    topScores.currentScore2AdditionMedium.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2AdditionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3AdditionMedium');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3AdditionMedium = document.getElementsByClassName('thirdScoreAdditionMedium')[0];
-    topScores.currentScore3AdditionMedium.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3AdditionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4AdditionMedium');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4AdditionMedium = document.getElementsByClassName('fourthScoreAdditionMedium')[0];
-    topScores.currentScore4AdditionMedium.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4AdditionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5AdditionMedium');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5AdditionMedium = document.getElementsByClassName('fifthScoreAdditionMedium')[0];
-    topScores.currentScore5AdditionMedium.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5AdditionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1AdditionEasy', topScores.currentScore1AdditionEasy, 'topScoreAdditionEasy', 'scoreSuffix1AdditionEasy');
+  scoreDesign(topScores.current2, 'Score2AdditionEasy', topScores.currentScore2AdditionEasy, 'secondScoreAdditionEasy', 'scoreSuffix2AdditionEasy');
+  scoreDesign(topScores.current3, 'Score3AdditionEasy', topScores.currentScore3AdditionEasy, 'thirdScoreAdditionEasy', 'scoreSuffix3AdditionEasy');
+  scoreDesign(topScores.current4, 'Score4AdditionEasy', topScores.currentScore4AdditionEasy, 'fourthScoreAdditionEasy', 'scoreSuffix4AdditionEasy');
+  scoreDesign(topScores.current5, 'Score5AdditionEasy', topScores.currentScore5AdditionEasy, 'fifthScoreAdditionEasy', 'scoreSuffix5AdditionEasy');
 
-  topScores.current1 = localStorage.getItem('Score1AdditionHard');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1AdditionHard = document.getElementsByClassName('topScoreAdditionHard')[0];
-    topScores.currentScore1AdditionHard.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1AdditionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2AdditionHard');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2AdditionHard = document.getElementsByClassName('secondScoreAdditionHard')[0];
-    topScores.currentScore2AdditionHard.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2AdditionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3AdditionHard');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3AdditionHard = document.getElementsByClassName('thirdScoreAdditionHard')[0];
-    topScores.currentScore3AdditionHard.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3AdditionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4AdditionHard');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4AdditionHard = document.getElementsByClassName('fourthScoreAdditionHard')[0];
-    topScores.currentScore4AdditionHard.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4AdditionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5AdditionHard');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5AdditionHard = document.getElementsByClassName('fifthScoreAdditionHard')[0];
-    topScores.currentScore5AdditionHard.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5AdditionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1AdditionMedium', topScores.currentScore1AdditionMedium, 'topScoreAdditionMedium', 'scoreSuffix1AdditionMedium');
+  scoreDesign(topScores.current2, 'Score2AdditionMedium', topScores.currentScore2AdditionMedium, 'secondScoreAdditionMedium', 'scoreSuffix2AdditionMedium');
+  scoreDesign(topScores.current3, 'Score3AdditionMedium', topScores.currentScore3AdditionMedium, 'thirdScoreAdditionMedium', 'scoreSuffix3AdditionMedium');
+  scoreDesign(topScores.current4, 'Score4AdditionMedium', topScores.currentScore4AdditionMedium, 'fourthScoreAdditionMedium', 'scoreSuffix4AdditionMedium');
+  scoreDesign(topScores.current5, 'Score5AdditionMedium', topScores.currentScore5AdditionMedium, 'fifthScoreAdditionMedium', 'scoreSuffix5AdditionMedium');
 
-  topScores.current1 = localStorage.getItem('Score1SubtractionEasy');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1SubtractionEasy = document.getElementsByClassName('topScoreSubtractionEasy')[0];
-    topScores.currentScore1SubtractionEasy.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1SubtractionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2SubtractionEasy');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2SubtractionEasy = document.getElementsByClassName('secondScoreSubtractionEasy')[0];
-    topScores.currentScore2SubtractionEasy.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2SubtractionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3SubtractionEasy');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3SubtractionEasy = document.getElementsByClassName('thirdScoreSubtractionEasy')[0];
-    topScores.currentScore3SubtractionEasy.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3SubtractionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4SubtractionEasy');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4SubtractionEasy = document.getElementsByClassName('fourthScoreSubtractionEasy')[0];
-    topScores.currentScore4SubtractionEasy.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4SubtractionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5SubtractionEasy');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5SubtractionEasy = document.getElementsByClassName('fifthScoreSubtractionEasy')[0];
-    topScores.currentScore5SubtractionEasy.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5SubtractionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1AdditionHard', topScores.currentScore1AdditionHard, 'topScoreAdditionHard', 'scoreSuffix1AdditionHard');
+  scoreDesign(topScores.current2, 'Score2AdditionHard', topScores.currentScore2AdditionHard, 'secondScoreAdditionHard', 'scoreSuffix2AdditionHard');
+  scoreDesign(topScores.current3, 'Score3AdditionHard', topScores.currentScore3AdditionHard, 'thirdScoreAdditionHard', 'scoreSuffix3AdditionHard');
+  scoreDesign(topScores.current4, 'Score4AdditionHard', topScores.currentScore4AdditionHard, 'fourthScoreAdditionHard', 'scoreSuffix4AdditionHard');
+  scoreDesign(topScores.current5, 'Score5AdditionHard', topScores.currentScore5AdditionHard, 'fifthScoreAdditionHard', 'scoreSuffix5AdditionHard');
 
-  topScores.current1 = localStorage.getItem('Score1SubtractionMedium');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1SubtractionMedium = document.getElementsByClassName('topScoreSubtractionMedium')[0];
-    topScores.currentScore1SubtractionMedium.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1SubtractionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2SubtractionMedium');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2SubtractionMedium = document.getElementsByClassName('secondScoreSubtractionMedium')[0];
-    topScores.currentScore2SubtractionMedium.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2SubtractionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3SubtractionMedium');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3SubtractionMedium = document.getElementsByClassName('thirdScoreSubtractionMedium')[0];
-    topScores.currentScore3SubtractionMedium.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3SubtractionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4SubtractionMedium');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4SubtractionMedium = document.getElementsByClassName('fourthScoreSubtractionMedium')[0];
-    topScores.currentScore4SubtractionMedium.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4SubtractionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5SubtractionMedium');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5SubtractionMedium = document.getElementsByClassName('fifthScoreSubtractionMedium')[0];
-    topScores.currentScore5SubtractionMedium.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5SubtractionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
 
-  topScores.current1 = localStorage.getItem('Score1SubtractionHard');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1SubtractionHard = document.getElementsByClassName('topScoreSubtractionHard')[0];
-    topScores.currentScore1SubtractionHard.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1SubtractionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2SubtractionHard');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2SubtractionHard = document.getElementsByClassName('secondScoreSubtractionHard')[0];
-    topScores.currentScore2SubtractionHard.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2SubtractionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3SubtractionHard');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3SubtractionHard = document.getElementsByClassName('thirdScoreSubtractionHard')[0];
-    topScores.currentScore3SubtractionHard.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3SubtractionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4SubtractionHard');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4SubtractionHard = document.getElementsByClassName('fourthScoreSubtractionHard')[0];
-    topScores.currentScore4SubtractionHard.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4SubtractionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5SubtractionHard');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5SubtractionHard = document.getElementsByClassName('fifthScoreSubtractionHard')[0];
-    topScores.currentScore5SubtractionHard.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5SubtractionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1SubtractionEasy', topScores.currentScore1SubtractionEasy, 'topScoreSubtractionEasy', 'scoreSuffix1SubtractionEasy');
+  scoreDesign(topScores.current2, 'Score2SubtractionEasy', topScores.currentScore2SubtractionEasy, 'secondScoreSubtractionEasy', 'scoreSuffix2SubtractionEasy');
+  scoreDesign(topScores.current3, 'Score3SubtractionEasy', topScores.currentScore3SubtractionEasy, 'thirdScoreSubtractionEasy', 'scoreSuffix3SubtractionEasy');
+  scoreDesign(topScores.current4, 'Score4SubtractionEasy', topScores.currentScore4SubtractionEasy, 'fourthScoreSubtractionEasy', 'scoreSuffix4SubtractionEasy');
+  scoreDesign(topScores.current5, 'Score5SubtractionEasy', topScores.currentScore5SubtractionEasy, 'fifthScoreSubtractionEasy', 'scoreSuffix5SubtractionEasy');
 
-  topScores.current1 = localStorage.getItem('Score1MultiplicationEasy');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1MultiplicationEasy = document.getElementsByClassName('topScoreMultiplicationEasy')[0];
-    topScores.currentScore1MultiplicationEasy.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1MultiplicationEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2MultiplicationEasy');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2MultiplicationEasy = document.getElementsByClassName('secondScoreMultiplicationEasy')[0];
-    topScores.currentScore2MultiplicationEasy.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2MultiplicationEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3MultiplicationEasy');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3MultiplicationEasy = document.getElementsByClassName('thirdScoreMultiplicationEasy')[0];
-    topScores.currentScore3MultiplicationEasy.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3MultiplicationEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4MultiplicationEasy');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4MultiplicationEasy = document.getElementsByClassName('fourthScoreMultiplicationEasy')[0];
-    topScores.currentScore4MultiplicationEasy.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4MultiplicationEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5MultiplicationEasy');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5MultiplicationEasy = document.getElementsByClassName('fifthScoreMultiplicationEasy')[0];
-    topScores.currentScore5MultiplicationEasy.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5MultiplicationEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1SubtractionMedium', topScores.currentScore1SubtractionMedium, 'topScoreSubtractionMedium', 'scoreSuffix1SubtractionMedium');
+  scoreDesign(topScores.current2, 'Score2SubtractionMedium', topScores.currentScore2SubtractionMedium, 'secondScoreSubtractionMedium', 'scoreSuffix2SubtractionMedium');
+  scoreDesign(topScores.current3, 'Score3SubtractionMedium', topScores.currentScore3SubtractionMedium, 'thirdScoreSubtractionMedium', 'scoreSuffix3SubtractionMedium');
+  scoreDesign(topScores.current4, 'Score4SubtractionMedium', topScores.currentScore4SubtractionMedium, 'fourthScoreSubtractionMedium', 'scoreSuffix4SubtractionMedium');
+  scoreDesign(topScores.current5, 'Score5SubtractionMedium', topScores.currentScore5SubtractionMedium, 'fifthScoreSubtractionMedium', 'scoreSuffix5SubtractionMedium');
 
-  topScores.current1 = localStorage.getItem('Score1MultiplicationMedium');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1MultiplicationMedium = document.getElementsByClassName('topScoreMultiplicationMedium')[0];
-    topScores.currentScore1MultiplicationMedium.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1MultiplicationMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2MultiplicationMedium');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2MultiplicationMedium = document.getElementsByClassName('secondScoreMultiplicationMedium')[0];
-    topScores.currentScore2MultiplicationMedium.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2MultiplicationMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3MultiplicationMedium');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3MultiplicationMedium = document.getElementsByClassName('thirdScoreMultiplicationMedium')[0];
-    topScores.currentScore3MultiplicationMedium.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3MultiplicationMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4MultiplicationMedium');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4MultiplicationMedium = document.getElementsByClassName('fourthScoreMultiplicationMedium')[0];
-    topScores.currentScore4MultiplicationMedium.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4MultiplicationMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5MultiplicationMedium');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5MultiplicationMedium = document.getElementsByClassName('fifthScoreMultiplicationMedium')[0];
-    topScores.currentScore5MultiplicationMedium.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5MultiplicationMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1SubtractionHard', topScores.currentScore1SubtractionHard, 'topScoreSubtractionHard', 'scoreSuffix1SubtractionHard');
+  scoreDesign(topScores.current2, 'Score2SubtractionHard', topScores.currentScore2SubtractionHard, 'secondScoreSubtractionHard', 'scoreSuffix2SubtractionHard');
+  scoreDesign(topScores.current3, 'Score3SubtractionHard', topScores.currentScore3SubtractionHard, 'thirdScoreSubtractionHard', 'scoreSuffix3SubtractionHard');
+  scoreDesign(topScores.current4, 'Score4SubtractionHard', topScores.currentScore4SubtractionHard, 'fourthScoreSubtractionHard', 'scoreSuffix4SubtractionHard');
+  scoreDesign(topScores.current5, 'Score5SubtractionHard', topScores.currentScore5SubtractionHard, 'fifthScoreSubtractionHard', 'scoreSuffix5SubtractionHard');
 
-  topScores.current1 = localStorage.getItem('Score1MultiplicationHard');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1MultiplicationHard = document.getElementsByClassName('topScoreMultiplicationHard')[0];
-    topScores.currentScore1MultiplicationHard.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1MultiplicationHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2MultiplicationHard');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2MultiplicationHard = document.getElementsByClassName('secondScoreMultiplicationHard')[0];
-    topScores.currentScore2MultiplicationHard.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2MultiplicationHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3MultiplicationHard');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3MultiplicationHard = document.getElementsByClassName('thirdScoreMultiplicationHard')[0];
-    topScores.currentScore3MultiplicationHard.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3MultiplicationHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4MultiplicationHard');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4MultiplicationHard = document.getElementsByClassName('fourthScoreMultiplicationHard')[0];
-    topScores.currentScore4MultiplicationHard.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4MultiplicationHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5MultiplicationHard');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5MultiplicationHard = document.getElementsByClassName('fifthScoreMultiplicationHard')[0];
-    topScores.currentScore5MultiplicationHard.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5MultiplicationHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
 
-  topScores.current1 = localStorage.getItem('Score1DivisionEasy');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1DivisionEasy = document.getElementsByClassName('topScoreDivisionEasy')[0];
-    topScores.currentScore1DivisionEasy.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1DivisionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2DivisionEasy');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2DivisionEasy = document.getElementsByClassName('secondScoreDivisionEasy')[0];
-    topScores.currentScore2DivisionEasy.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2DivisionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3DivisionEasy');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3DivisionEasy = document.getElementsByClassName('thirdScoreDivisionEasy')[0];
-    topScores.currentScore3DivisionEasy.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3DivisionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4DivisionEasy');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4DivisionEasy = document.getElementsByClassName('fourthScoreDivisionEasy')[0];
-    topScores.currentScore4DivisionEasy.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4DivisionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5DivisionEasy');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5DivisionEasy = document.getElementsByClassName('fifthScoreDivisionEasy')[0];
-    topScores.currentScore5DivisionEasy.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5DivisionEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1MultiplicationEasy', topScores.currentScore1MultiplicationEasy, 'topScoreMultiplicationEasy', 'scoreSuffix1MultiplicationEasy');
+  scoreDesign(topScores.current2, 'Score2MultiplicationEasy', topScores.currentScore2MultiplicationEasy, 'secondScoreMultiplicationEasy', 'scoreSuffix2MultiplicationEasy');
+  scoreDesign(topScores.current3, 'Score3MultiplicationEasy', topScores.currentScore3MultiplicationEasy, 'thirdScoreMultiplicationEasy', 'scoreSuffix3MultiplicationEasy');
+  scoreDesign(topScores.current4, 'Score4MultiplicationEasy', topScores.currentScore4MultiplicationEasy, 'fourthScoreMultiplicationEasy', 'scoreSuffix4MultiplicationEasy');
+  scoreDesign(topScores.current5, 'Score5MultiplicationEasy', topScores.currentScore5MultiplicationEasy, 'fifthScoreMultiplicationEasy', 'scoreSuffix5MultiplicationEasy');
 
-  topScores.current1 = localStorage.getItem('Score1DivisionMedium');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1DivisionMedium = document.getElementsByClassName('topScoreDivisionMedium')[0];
-    topScores.currentScore1DivisionMedium.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1DivisionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2DivisionMedium');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2DivisionMedium = document.getElementsByClassName('secondScoreDivisionMedium')[0];
-    topScores.currentScore2DivisionMedium.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2DivisionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3DivisionMedium');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3DivisionMedium = document.getElementsByClassName('thirdScoreDivisionMedium')[0];
-    topScores.currentScore3DivisionMedium.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3DivisionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4DivisionMedium');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4DivisionMedium = document.getElementsByClassName('fourthScoreDivisionMedium')[0];
-    topScores.currentScore4DivisionMedium.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4DivisionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5DivisionMedium');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5DivisionMedium = document.getElementsByClassName('fifthScoreDivisionMedium')[0];
-    topScores.currentScore5DivisionMedium.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5DivisionMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1MultiplicationMedium', topScores.currentScore1MultiplicationMedium, 'topScoreMultiplicationMedium', 'scoreSuffix1MultiplicationMedium');
+  scoreDesign(topScores.current2, 'Score2MultiplicationMedium', topScores.currentScore2MultiplicationMedium, 'secondScoreMultiplicationMedium', 'scoreSuffix2MultiplicationMedium');
+  scoreDesign(topScores.current3, 'Score3MultiplicationMedium', topScores.currentScore3MultiplicationMedium, 'thirdScoreMultiplicationMedium', 'scoreSuffix3MultiplicationMedium');
+  scoreDesign(topScores.current4, 'Score4MultiplicationMedium', topScores.currentScore4MultiplicationMedium, 'fourthScoreMultiplicationMedium', 'scoreSuffix4MultiplicationMedium');
+  scoreDesign(topScores.current5, 'Score5MultiplicationMedium', topScores.currentScore5MultiplicationMedium, 'fifthScoreMultiplicationMedium', 'scoreSuffix5MultiplicationMedium');
 
-  topScores.current1 = localStorage.getItem('Score1DivisionHard');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1DivisionHard = document.getElementsByClassName('topScoreDivisionHard')[0];
-    topScores.currentScore1DivisionHard.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1DivisionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2DivisionHard');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2DivisionHard = document.getElementsByClassName('secondScoreDivisionHard')[0];
-    topScores.currentScore2DivisionHard.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2DivisionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3DivisionHard');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3DivisionHard = document.getElementsByClassName('thirdScoreDivisionHard')[0];
-    topScores.currentScore3DivisionHard.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3DivisionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4DivisionHard');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4DivisionHard = document.getElementsByClassName('fourthScoreDivisionHard')[0];
-    topScores.currentScore4DivisionHard.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4DivisionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5DivisionHard');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5DivisionHard = document.getElementsByClassName('fifthScoreDivisionHard')[0];
-    topScores.currentScore5DivisionHard.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5DivisionHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1MultiplicationHard', topScores.currentScore1MultiplicationHard, 'topScoreMultiplicationHard', 'scoreSuffix1MultiplicationHard');
+  scoreDesign(topScores.current2, 'Score2MultiplicationHard', topScores.currentScore2MultiplicationHard, 'secondScoreMultiplicationHard', 'scoreSuffix2MultiplicationHard');
+  scoreDesign(topScores.current3, 'Score3MultiplicationHard', topScores.currentScore3MultiplicationHard, 'thirdScoreMultiplicationHard', 'scoreSuffix3MultiplicationHard');
+  scoreDesign(topScores.current4, 'Score4MultiplicationHard', topScores.currentScore4MultiplicationHard, 'fourthScoreMultiplicationHard', 'scoreSuffix4MultiplicationHard');
+  scoreDesign(topScores.current5, 'Score5MultiplicationHard', topScores.currentScore5MultiplicationHard, 'fifthScoreMultiplicationHard', 'scoreSuffix5MultiplicationHard');
 
-  topScores.current1 = localStorage.getItem('Score1AllOfThemEasy');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1AllOfThemEasy = document.getElementsByClassName('topScoreAllOfThemEasy')[0];
-    topScores.currentScore1AllOfThemEasy.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1AllOfThemEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2AllOfThemEasy');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2AllOfThemEasy = document.getElementsByClassName('secondScoreAllOfThemEasy')[0];
-    topScores.currentScore2AllOfThemEasy.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2AllOfThemEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3AllOfThemEasy');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3AllOfThemEasy = document.getElementsByClassName('thirdScoreAllOfThemEasy')[0];
-    topScores.currentScore3AllOfThemEasy.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3AllOfThemEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4AllOfThemEasy');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4AllOfThemEasy = document.getElementsByClassName('fourthScoreAllOfThemEasy')[0];
-    topScores.currentScore4AllOfThemEasy.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4AllOfThemEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5AllOfThemEasy');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5AllOfThemEasy = document.getElementsByClassName('fifthScoreAllOfThemEasy')[0];
-    topScores.currentScore5AllOfThemEasy.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5AllOfThemEasy')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
 
-  topScores.current1 = localStorage.getItem('Score1AllOfThemMedium');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1AllOfThemMedium = document.getElementsByClassName('topScoreAllOfThemMedium')[0];
-    topScores.currentScore1AllOfThemMedium.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1AllOfThemMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2AllOfThemMedium');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2AllOfThemMedium = document.getElementsByClassName('secondScoreAllOfThemMedium')[0];
-    topScores.currentScore2AllOfThemMedium.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2AllOfThemMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3AllOfThemMedium');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3AllOfThemMedium = document.getElementsByClassName('thirdScoreAllOfThemMedium')[0];
-    topScores.currentScore3AllOfThemMedium.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3AllOfThemMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4AllOfThemMedium');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4AllOfThemMedium = document.getElementsByClassName('fourthScoreAllOfThemMedium')[0];
-    topScores.currentScore4AllOfThemMedium.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4AllOfThemMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5AllOfThemMedium');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5AllOfThemMedium = document.getElementsByClassName('fifthScoreAllOfThemMedium')[0];
-    topScores.currentScore5AllOfThemMedium.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5AllOfThemMedium')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1DivisionEasy', topScores.currentScore1DivisionEasy, 'topScoreDivisionEasy', 'scoreSuffix1DivisionEasy');
+  scoreDesign(topScores.current2, 'Score2DivisionEasy', topScores.currentScore2DivisionEasy, 'secondScoreDivisionEasy', 'scoreSuffix2DivisionEasy');
+  scoreDesign(topScores.current3, 'Score3DivisionEasy', topScores.currentScore3DivisionEasy, 'thirdScoreDivisionEasy', 'scoreSuffix3DivisionEasy');
+  scoreDesign(topScores.current4, 'Score4DivisionEasy', topScores.currentScore4DivisionEasy, 'fourthScoreDivisionEasy', 'scoreSuffix4DivisionEasy');
+  scoreDesign(topScores.current5, 'Score5DivisionEasy', topScores.currentScore5DivisionEasy, 'fifthScoreDivisionEasy', 'scoreSuffix5DivisionEasy');
 
-  topScores.current1 = localStorage.getItem('Score1AllOfThemHard');
-  if (topScores.current1 != null && topScores.current1 != 'null') {
-    topScores.currentScore1AllOfThemHard = document.getElementsByClassName('topScoreAllOfThemHard')[0];
-    topScores.currentScore1AllOfThemHard.innerHTML = `${topScores.current1}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix1AllOfThemHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current2 = localStorage.getItem('Score2AllOfThemHard');
-  if (topScores.current2 != null && topScores.current2 != 'null') {
-    topScores.currentScore2AllOfThemHard = document.getElementsByClassName('secondScoreAllOfThemHard')[0];
-    topScores.currentScore2AllOfThemHard.innerHTML = `${topScores.current2}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix2AllOfThemHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current3 = localStorage.getItem('Score3AllOfThemHard');
-  if (topScores.current3 != null && topScores.current3 != 'null') {
-    topScores.currentScore3AllOfThemHard = document.getElementsByClassName('thirdScoreAllOfThemHard')[0];
-    topScores.currentScore3AllOfThemHard.innerHTML = `${topScores.current3}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix3AllOfThemHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current4 = localStorage.getItem('Score4AllOfThemHard');
-  if (topScores.current4 != null && topScores.current4 != 'null') {
-    topScores.currentScore4AllOfThemHard = document.getElementsByClassName('fourthScoreAllOfThemHard')[0];
-    topScores.currentScore4AllOfThemHard.innerHTML = `${topScores.current4}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix4AllOfThemHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
-  topScores.current5 = localStorage.getItem('Score5AllOfThemHard');
-  if (topScores.current5 != null && topScores.current5 != 'null') {
-    topScores.currentScore5AllOfThemHard = document.getElementsByClassName('fifthScoreAllOfThemHard')[0];
-    topScores.currentScore5AllOfThemHard.innerHTML = `${topScores.current5}`;
-  } else {
-    topScores.scoreSuffix = document.getElementsByClassName('scoreSuffix5AllOfThemHard')[0];
-    topScores.scoreSuffix.innerHTML = 'None';
-  }
+  scoreDesign(topScores.current1, 'Score1DivisionMedium', topScores.currentScore1DivisionMedium, 'topScoreDivisionMedium', 'scoreSuffix1DivisionMedium');
+  scoreDesign(topScores.current2, 'Score2DivisionMedium', topScores.currentScore2DivisionMedium, 'secondScoreDivisionMedium', 'scoreSuffix2DivisionMedium');
+  scoreDesign(topScores.current3, 'Score3DivisionMedium', topScores.currentScore3DivisionMedium, 'thirdScoreDivisionMedium', 'scoreSuffix3DivisionMedium');
+  scoreDesign(topScores.current4, 'Score4DivisionMedium', topScores.currentScore4DivisionMedium, 'fourthScoreDivisionMedium', 'scoreSuffix4DivisionMedium');
+  scoreDesign(topScores.current5, 'Score5DivisionMedium', topScores.currentScore5DivisionMedium, 'fifthScoreDivisionMedium', 'scoreSuffix5DivisionMedium');
+
+  scoreDesign(topScores.current1, 'Score1DivisionHard', topScores.currentScore1DivisionHard, 'topScoreDivisionHard', 'scoreSuffix1DivisionHard');
+  scoreDesign(topScores.current2, 'Score2DivisionHard', topScores.currentScore2DivisionHard, 'secondScoreDivisionHard', 'scoreSuffix2DivisionHard');
+  scoreDesign(topScores.current3, 'Score3DivisionHard', topScores.currentScore3DivisionHard, 'thirdScoreDivisionHard', 'scoreSuffix3DivisionHard');
+  scoreDesign(topScores.current4, 'Score4DivisionHard', topScores.currentScore4DivisionHard, 'fourthScoreDivisionHard', 'scoreSuffix4DivisionHard');
+  scoreDesign(topScores.current5, 'Score5DivisionHard', topScores.currentScore5DivisionHard, 'fifthScoreDivisionHard', 'scoreSuffix5DivisionHard');
+
+
+  scoreDesign(topScores.current1, 'Score1AllOfThemEasy', topScores.currentScore1AllOfThemEasy, 'topScoreAllOfThemEasy', 'scoreSuffix1AllOfThemEasy');
+  scoreDesign(topScores.current2, 'Score2AllOfThemEasy', topScores.currentScore2AllOfThemEasy, 'secondScoreAllOfThemEasy', 'scoreSuffix2AllOfThemEasy');
+  scoreDesign(topScores.current3, 'Score3AllOfThemEasy', topScores.currentScore3AllOfThemEasy, 'thirdScoreAllOfThemEasy', 'scoreSuffix3AllOfThemEasy');
+  scoreDesign(topScores.current4, 'Score4AllOfThemEasy', topScores.currentScore4AllOfThemEasy, 'fourthScoreAllOfThemEasy', 'scoreSuffix4AllOfThemEasy');
+  scoreDesign(topScores.current5, 'Score5AllOfThemEasy', topScores.currentScore5AllOfThemEasy, 'fifthScoreAllOfThemEasy', 'scoreSuffix5AllOfThemEasy');
+
+  scoreDesign(topScores.current1, 'Score1AllOfThemMedium', topScores.currentScore1AllOfThemMedium, 'topScoreAllOfThemMedium', 'scoreSuffix1AllOfThemMedium');
+  scoreDesign(topScores.current2, 'Score2AllOfThemMedium', topScores.currentScore2AllOfThemMedium, 'secondScoreAllOfThemMedium', 'scoreSuffix2AllOfThemMedium');
+  scoreDesign(topScores.current3, 'Score3AllOfThemMedium', topScores.currentScore3AllOfThemMedium, 'thirdScoreAllOfThemMedium', 'scoreSuffix3AllOfThemMedium');
+  scoreDesign(topScores.current4, 'Score4AllOfThemMedium', topScores.currentScore4AllOfThemMedium, 'fourthScoreAllOfThemMedium', 'scoreSuffix4AllOfThemMedium');
+  scoreDesign(topScores.current5, 'Score5AllOfThemMedium', topScores.currentScore5AllOfThemMedium, 'fifthScoreAllOfThemMedium', 'scoreSuffix5AllOfThemMedium');
+
+  scoreDesign(topScores.current1, 'Score1AllOfThemHard', topScores.currentScore1AllOfThemHard, 'topScoreAllOfThemHard', 'scoreSuffix1AllOfThemHard');
+  scoreDesign(topScores.current2, 'Score2AllOfThemHard', topScores.currentScore2AllOfThemHard, 'secondScoreAllOfThemHard', 'scoreSuffix2AllOfThemHard');
+  scoreDesign(topScores.current3, 'Score3AllOfThemHard', topScores.currentScore3AllOfThemHard, 'thirdScoreAllOfThemHard', 'scoreSuffix3AllOfThemHard');
+  scoreDesign(topScores.current4, 'Score4AllOfThemHard', topScores.currentScore4AllOfThemHard, 'fourthScoreAllOfThemHard', 'scoreSuffix4AllOfThemHard');
+  scoreDesign(topScores.current5, 'Score5AllOfThemHard', topScores.currentScore5AllOfThemHard, 'fifthScoreAllOfThemHard', 'scoreSuffix5AllOfThemHard');
 
   topScores.reset = document.getElementsByClassName('resetScores')[0];
-
   topScores.reset.addEventListener("click", function(){
     let answer = prompt('Are you sure??? (Type "y" to confirm...)')
     if (answer === 'y') {

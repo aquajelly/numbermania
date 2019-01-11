@@ -36,6 +36,44 @@ body {
   margin-bottom: 5px;
 }
 
+.upperDisplayElementsContainer {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin: auto;
+  display: flex
+}
+
+.upperDisplayElements {
+  width: 30%;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 5px;
+  margin: auto;
+  margin-top: 20px
+}
+
+.gameClass {
+  background-color: white;
+  border: 5px solid black;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.answerArea {
+  margin: auto;
+  height: 1em;
+  padding: 0.2em;
+  width: 80%;
+  text-align: center;
+  background-color: rgb(2, 212, 167);
+  border: 3px solid black;
+}
+
 .answerButtons {
   background-color: rgb(208, 241, 158);
   border: 2px solid black;

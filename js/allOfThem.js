@@ -8,87 +8,68 @@ content = document.getElementsByClassName('content')[0];
 gamePlay = (num1, num2, num3, num4, num5, num6) => {
   let gameScore = 0;
   let seconds = 30;
-  let timer = document.createElement('div');
-  timer.style.textAlign = 'center';
-  timer.style.marginTop = '20px';
-  timer.style.marginBottom = '20px';
-  timer.style.margin = 'auto';
-  timer.style.display = 'flex';
-  let timerContent = document.createElement('p');
-  timerContent.style.width = '30%';
-  timerContent.style.background = 'white';
-  timerContent.style.border = '2px solid black';
-  timerContent.style.borderRadius = '20px';
-  timerContent.style.padding = '5px';
-  timerContent.style.margin = 'auto';
-  timerContent.style.marginTop = '20px';
-  timer.appendChild(timerContent);
-  let calculationDisplay = document.createElement('p');
-  calculationDisplay.style.width = '30%';
-  calculationDisplay.style.background = 'white';
-  calculationDisplay.style.border = '2px solid black';
-  calculationDisplay.style.borderRadius = '20px';
-  calculationDisplay.style.padding = '5px';
-  calculationDisplay.style.margin = 'auto';
-  calculationDisplay.style.marginTop = '20px';
-  calculationDisplay.innerHTML = 'All Types';
-  timer.appendChild(calculationDisplay);
-  let difficultyDisplay = document.createElement('p');
-  difficultyDisplay.style.width = '30%';
-  difficultyDisplay.style.background = 'white';
-  difficultyDisplay.style.border = '2px solid black';
-  difficultyDisplay.style.borderRadius = '20px';
-  difficultyDisplay.style.padding = '5px';
-  difficultyDisplay.style.margin = 'auto';
-  difficultyDisplay.style.marginTop = '20px';
-  if (num1 == 19) {
-    difficultyDisplay.innerHTML = 'Difficulty: Easy';
-  } else if (num1 == 49) {
-    difficultyDisplay.innerHTML = 'Difficulty: Medium';
-  } else if (num1 == 99) {
-    difficultyDisplay.innerHTML = 'Difficulty: Hard';
+
+  creatingUpperDisplay = () => {
+    timer.className = 'upperDisplayElementsContainer';
+    timerContent.className = 'upperDisplayElements';
+    calculationDisplay.className = 'upperDisplayElements';
+    calculationDisplay.innerHTML = 'All Types';
+    difficultyDisplay.className = 'upperDisplayElements';
+    timer.appendChild(timerContent);
+    timer.appendChild(calculationDisplay);
+    timer.appendChild(difficultyDisplay);
   }
-  timer.appendChild(difficultyDisplay);
-  let game = document.createElement('div');
+  const timer = document.createElement('div');
+  const timerContent = document.createElement('p');
+  const calculationDisplay = document.createElement('p');
+  const difficultyDisplay = document.createElement('p');
+  creatingUpperDisplay();
+
+  settingDifficultyDisplay = () => {
+    if (num1 == 19) {
+      difficultyDisplay.innerHTML = 'Difficulty: Easy';
+    } else if (num1 == 49) {
+      difficultyDisplay.innerHTML = 'Difficulty: Medium';
+    } else if (num1 == 99) {
+      difficultyDisplay.innerHTML = 'Difficulty: Hard';
+    }
+  }
+  settingDifficultyDisplay();
+
+  const game = document.createElement('div');
   game.className = 'gameClass';
-  game.style.background = 'white';
-  game.style.border = '5px solid black';
-  game.style.textAlign = 'center';
-  game.style.margin = 'auto';
-  game.style.marginTop = '20px';
-  game.style.marginBottom = '20px';
-  game.style.borderRadius = '20px';
-  let gameContent = document.createElement('p');
+  const gameContent = document.createElement('p');
   gameContent.style.fontSize = '40px';
   game.appendChild(gameContent);
 
+  const answerArea = document.createElement('p');
+  answerArea.className = 'answerArea';
+  game.appendChild(answerArea);
   let submittedAnswer = '';
-  let answerArea = document.createElement('p');
+
   displayAnswer = () => {
     answerArea.innerHTML = `${submittedAnswer}`;
   }
   setInterval(displayAnswer, 10);
-  answerArea.style.margin = 'auto';
-  answerArea.style.height = '1em';
-  answerArea.style.padding = '0.2em';
-  answerArea.style.width = '80%';
-  answerArea.style.textAlign = 'center';
-  answerArea.style.background = 'rgb(2, 212, 167)';
-  answerArea.style.border = '3px solid black';
-  game.appendChild(answerArea);
-  let answerButtonsArea = document.createElement('div');
+
+  const answerButtonsArea = document.createElement('div');
   answerButtonsArea.className = 'buttons';
-  answerButtonsArea.style.textAlign = 'center';
-  let answerButtonsArea1 = document.createElement('div');
-  let answerButtonsArea2 = document.createElement('div');
-  let answerButtonsArea3 = document.createElement('div');
-  let answerButtonsArea4 = document.createElement('div');
-  let answerButtonsArea5 = document.createElement('div');
-  answerButtonsArea.appendChild(answerButtonsArea1);
-  answerButtonsArea.appendChild(answerButtonsArea2);
-  answerButtonsArea.appendChild(answerButtonsArea3);
-  answerButtonsArea.appendChild(answerButtonsArea4);
-  answerButtonsArea.appendChild(answerButtonsArea5);
+
+  const answerButtonsArea1 = document.createElement('div');
+  const answerButtonsArea2 = document.createElement('div');
+  const answerButtonsArea3 = document.createElement('div');
+  const answerButtonsArea4 = document.createElement('div');
+  const answerButtonsArea5 = document.createElement('div');
+
+  answerButtonsArray = [answerButtonsArea1, answerButtonsArea2, answerButtonsArea3, answerButtonsArea4, answerButtonsArea5];
+
+  differentButtonSections = () => {
+    for (i=0; i<answerButtonsArray.length; i++) {
+      answerButtonsArea.appendChild(answerButtonsArray[i]);
+    }
+  }
+  differentButtonSections();
+
   addNumber = (number) => {
     if (submittedAnswer.length < 5) {
       if (number <= 9) {
@@ -99,100 +80,83 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
     }
     if (number == 11) {
       submittedAnswer = submittedAnswer.substr(0, submittedAnswer.length-1);
-    } else if (number == 12){
+    } else if (number == 12) {
       submittedAnswer = '';
     }
   }
-  let answerZero = document.createElement('button');
-  // const answers = document.getElementById('button-array')
-  // answers.map(button => {
-  //   button.setAttribute('class', 'answerButton')
-  // })
-  answerZero.setAttribute('class', 'answerButtons');
-  answerZero.setAttribute('type', 'button');
-  answerZero.innerHTML = '0';
+
+  const answerZero = document.createElement('button');
   answerZero.addEventListener('click', function() {addNumber(0)});
-  answerButtonsArea4.appendChild(answerZero);
-  let answerOne = document.createElement('button');
-  answerOne.setAttribute('class', 'answerButtons');
-  answerOne.setAttribute('type', 'button');
-  answerOne.innerHTML = '1';
+  const answerOne = document.createElement('button');
   answerOne.addEventListener('click', function() {addNumber(1)});
-  answerButtonsArea3.appendChild(answerOne);
-  let answerTwo = document.createElement('button');
-  answerTwo.setAttribute('class', 'answerButtons');
-  answerTwo.setAttribute('type', 'button');
-  answerTwo.innerHTML = '2';
+  const answerTwo = document.createElement('button');
   answerTwo.addEventListener('click', function() {addNumber(2)});
-  answerButtonsArea3.appendChild(answerTwo);
-  let answerThree = document.createElement('button');
-  answerThree.setAttribute('class', 'answerButtons');
-  answerThree.setAttribute('type', 'button');
-  answerThree.innerHTML = '3';
+  const answerThree = document.createElement('button');
   answerThree.addEventListener('click', function() {addNumber(3)});
-  answerButtonsArea3.appendChild(answerThree);
-  let answerFour = document.createElement('button');
-  answerFour.setAttribute('class', 'answerButtons');
-  answerFour.setAttribute('type', 'button');
-  answerFour.innerHTML = '4';
+  const answerFour = document.createElement('button');
   answerFour.addEventListener('click', function() {addNumber(4)});
-  answerButtonsArea2.appendChild(answerFour);
-  let answerFive = document.createElement('button');
-  answerFive.setAttribute('class', 'answerButtons');
-  answerFive.setAttribute('type', 'button');
-  answerFive.innerHTML = '5';
+  const answerFive = document.createElement('button');
   answerFive.addEventListener('click', function() {addNumber(5)});
-  answerButtonsArea2.appendChild(answerFive);
-  let answerSix = document.createElement('button');
-  answerSix.setAttribute('class', 'answerButtons');
-  answerSix.setAttribute('type', 'button');
-  answerSix.innerHTML = '6';
+  const answerSix = document.createElement('button');
   answerSix.addEventListener('click', function() {addNumber(6)});
-  answerButtonsArea2.appendChild(answerSix);
-  let answerSeven = document.createElement('button');
-  answerSeven.setAttribute('class', 'answerButtons');
-  answerSeven.setAttribute('type', 'button');
-  answerSeven.innerHTML = '7';
+  const answerSeven = document.createElement('button');
   answerSeven.addEventListener('click', function() {addNumber(7)});
-  answerButtonsArea1.appendChild(answerSeven);
-  let answerEight = document.createElement('button');
-  answerEight.setAttribute('class', 'answerButtons');
-  answerEight.setAttribute('type', 'button');
-  answerEight.innerHTML = '8';
+  const answerEight = document.createElement('button');
   answerEight.addEventListener('click', function() {addNumber(8)});
-  answerButtonsArea1.appendChild(answerEight);
-  let answerNine = document.createElement('button');
-  answerNine.setAttribute('class', 'answerButtons');
-  answerNine.setAttribute('type', 'button');
-  answerNine.innerHTML = '9';
+  const answerNine = document.createElement('button');
   answerNine.addEventListener('click', function() {addNumber(9)});
-  answerButtonsArea1.appendChild(answerNine);
-  let answerMinus = document.createElement('button');
-  answerMinus.setAttribute('class', 'answerButtons');
-  answerMinus.setAttribute('type', 'button');
-  answerMinus.innerHTML = '-';
+  const answerMinus = document.createElement('button');
   answerMinus.addEventListener('click', function() {addNumber(10)});
-  answerButtonsArea5.appendChild(answerMinus);
-  let answerDelete = document.createElement('button');
-  answerDelete.setAttribute('class', 'deleteButton');
-  answerDelete.setAttribute('type', 'button');
-  answerDelete.innerHTML = 'Delete';
+  const answerDelete = document.createElement('button');
   answerDelete.addEventListener('click', function() {addNumber(11)});
-  answerButtonsArea4.appendChild(answerDelete);
-  let answerClear = document.createElement('button');
-  answerClear.setAttribute('class', 'clearButton');
-  answerClear.setAttribute('type', 'button');
-  answerClear.innerHTML = 'Clear';
+  const answerClear = document.createElement('button');
   answerClear.addEventListener('click', function() {addNumber(12)});
-  answerButtonsArea5.appendChild(answerClear);
+
+  buttonArray = [answerZero, answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, answerSeven, answerEight, answerNine, answerMinus, answerDelete, answerClear];
+
+  buttonArrangement = () => {
+    for (i=0; i<buttonArray.length; i++) {
+      buttonArray[i].setAttribute('type', 'button');
+      switch (i) {
+        case (11):
+          buttonArray[i].setAttribute('class', 'deleteButton');
+          buttonArray[i].innerHTML = 'Delete';
+          answerButtonsArea4.appendChild(buttonArray[i]);
+        break;
+        case (10):
+          buttonArray[i].setAttribute('class', 'answerButtons');
+          buttonArray[i].innerHTML = '-';
+          answerButtonsArea5.appendChild(buttonArray[i]);
+        break;
+        case (12):
+          buttonArray[i].setAttribute('class', 'clearButton');
+          buttonArray[i].innerHTML = 'Clear';
+          answerButtonsArea5.appendChild(buttonArray[i]);
+        break;
+        default:
+          buttonArray[i].setAttribute('class', 'answerButtons');
+          buttonArray[i].innerHTML = i;
+          if (i > 6 && i < 10) {
+            answerButtonsArea1.appendChild(buttonArray[i]);
+          } else if (i > 3 && i < 7) {
+            answerButtonsArea2.appendChild(buttonArray[i]);
+          } else if (i > 0 && i < 4) {
+            answerButtonsArea3.appendChild(buttonArray[i]);
+          } else {
+            answerButtonsArea4.appendChild(buttonArray[i]);
+          }
+      }
+    }
+  }
+  buttonArrangement();
   game.appendChild(answerButtonsArea);
 
-  let body = document.querySelector('body');
-  let button = document.querySelector('div');
+  const body = document.querySelector('body');
+  const button = document.querySelector('div');
+  const homeButton = document.querySelector('.homeButton');
   body.insertBefore(timer, button);
   body.insertBefore(game, button);
   timerContent.innerHTML = `Time Left: ${seconds}`;
-  answerArea.focus();
 
   mediaQuery = (windowSize) => {
     if (windowSize.matches) {
@@ -231,9 +195,7 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
   };
   gameStart = () => {
     answerArea.removeAttribute('placeholder');
-
     calculationChooser();
-
     setInterval(countdown, 1000);
     setInterval(checker, 10);
   };
@@ -303,31 +265,27 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
     };
   };
 
-  gameOver = () => {
-    backgroundNormal();
-    gameContent.innerHTML = 'Well done! You scored:';
-    answerButtonsArea.innerHTML = `${gameScore}`;
-    answerButtonsArea.style.paddingBottom = '20px';
-    answerArea.parentNode.removeChild(answerArea);
-    delete answerArea;
-
-    let buttonArea = document.createElement('div');
+  gameOverDisplay = () => {
+    const container = document.querySelector('.container');
+    container.appendChild(homeButton);
+    const buttonArea = document.createElement('div');
     buttonArea.className = 'buttons';
     buttonArea.style.textAlign = 'center';
 
-    let newButtonForReplay = document.createElement('button');
+    const newButtonForReplay = document.createElement('button');
     newButtonForReplay.setAttribute('class', 'gameType');
     newButtonForReplay.setAttribute('type', 'button');
     newButtonForReplay.innerHTML = 'Play Again';
     newButtonForReplay.style.margin = '5px';
 
-    let newLinkForDifficulty = document.createElement('a');
-    newLinkForDifficulty.setAttribute('href', 'addition.html');
-    let newButtonForDifficulty = document.createElement('button');
+    const newLinkForDifficulty = document.createElement('a');
+    newLinkForDifficulty.setAttribute('href', 'allOfThem.html');
+    const newButtonForDifficulty = document.createElement('button');
     newButtonForDifficulty.setAttribute('class', 'gameType');
     newButtonForDifficulty.setAttribute('type', 'button');
     newButtonForDifficulty.innerHTML = 'Change Difficulty';
     newButtonForDifficulty.style.margin = '5px';
+
     newLinkForDifficulty.appendChild(newButtonForDifficulty);
 
     buttonArea.appendChild(newButtonForReplay);
@@ -350,90 +308,72 @@ gamePlay = (num1, num2, num3, num4, num5, num6) => {
       }
     };
     newButtonForReplay.addEventListener('click', replayTypeDecider);
+  }
+
+  scoreRearranger = (score1, score2, score3, score4, score5, gameScore) => {
+    if (score4 == 'dummy') {
+      localStorage.setItem(score5, gameScore);
+    } else if (score3 == 'dummy') {
+      localStorage.setItem(score5, localStorage.getItem(score4, gameScore));
+      localStorage.setItem(score4, gameScore);
+    } else if (score2 == 'dummy') {
+      localStorage.setItem(score5, localStorage.getItem(score4, gameScore));
+      localStorage.setItem(score4, localStorage.getItem(score3, gameScore));
+      localStorage.setItem(score3, gameScore);
+    } else if (score1 == 'dummy') {
+      localStorage.setItem(score5, localStorage.getItem(score4, gameScore));
+      localStorage.setItem(score4, localStorage.getItem(score3, gameScore));
+      localStorage.setItem(score3, localStorage.getItem(score2, gameScore));
+      localStorage.setItem(score2, gameScore);
+    } else {
+      localStorage.setItem(score5, localStorage.getItem(score4, gameScore));
+      localStorage.setItem(score4, localStorage.getItem(score3, gameScore));
+      localStorage.setItem(score3, localStorage.getItem(score2, gameScore));
+      localStorage.setItem(score2, localStorage.getItem(score1, gameScore));
+      localStorage.setItem(score1, gameScore);
+    }
+  }
+
+  scoreDecider = (score1, score2, score3, score4, score5, gameScore) => {
+    if (gameScore >= localStorage.getItem(score1) || localStorage.getItem(score1) == 'null') {
+      scoreRearranger(score1, score2, score3, score4, score5, gameScore);
+    }
+    else if (gameScore >= localStorage.getItem(score2) || localStorage.getItem(score2) == 'null') {
+      scoreRearranger('dummy', score2, score3, score4, score5, gameScore);
+    }
+    else if (gameScore >= localStorage.getItem(score3) || localStorage.getItem(score3) == 'null') {
+      scoreRearranger('dummy', 'dummy', score3, score4, score5, gameScore);
+    }
+    else if (gameScore >= localStorage.getItem(score4) || localStorage.getItem(score4) == 'null') {
+      scoreRearranger('dummy', 'dummy', 'dummy', score4, score5, gameScore);
+    }
+    else if (gameScore >= localStorage.getItem(score5) || localStorage.getItem(score5) == 'null') {
+      scoreRearranger('dummy', 'dummy', 'dummy', 'dummy', score5, gameScore);
+    }
+  }
+
+  gameOver = () => {
+    backgroundNormal();
+    gameContent.innerHTML = 'Well done! You scored:';
+    answerButtonsArea.innerHTML = `${gameScore}`;
+    answerButtonsArea.style.paddingBottom = '20px';
+    answerArea.parentNode.removeChild(answerArea);
+    delete answerArea;
+    homeButton.parentNode.removeChild(homeButton);
+
+    setTimeout(gameOverDisplay, 1000);
 
     if (num1 == 19) {
       localStorage.setItem('currentScore', gameScore);
-      if (gameScore >= localStorage.getItem('Score1AllOfThemEasy') || localStorage.getItem('Score1AllOfThemEasy') == 'null') {
-        localStorage.setItem('Score5AllOfThemEasy', localStorage.getItem('Score4AllOfThemEasy', gameScore));
-        localStorage.setItem('Score4AllOfThemEasy', localStorage.getItem('Score3AllOfThemEasy', gameScore));
-        localStorage.setItem('Score3AllOfThemEasy', localStorage.getItem('Score2AllOfThemEasy', gameScore));
-        localStorage.setItem('Score2AllOfThemEasy', localStorage.getItem('Score1AllOfThemEasy', gameScore));
-        localStorage.setItem('Score1AllOfThemEasy', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score2AllOfThemEasy') || localStorage.getItem('Score2AllOfThemEasy') == 'null') {
-        localStorage.setItem('Score5AllOfThemEasy', localStorage.getItem('Score4AllOfThemEasy', gameScore));
-        localStorage.setItem('Score4AllOfThemEasy', localStorage.getItem('Score3AllOfThemEasy', gameScore));
-        localStorage.setItem('Score3AllOfThemEasy', localStorage.getItem('Score2AllOfThemEasy', gameScore));
-        localStorage.setItem('Score2AllOfThemEasy', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score3AllOfThemEasy') || localStorage.getItem('Score3AllOfThemEasy') == 'null') {
-        localStorage.setItem('Score5AllOfThemEasy', localStorage.getItem('Score4AllOfThemEasy', gameScore));
-        localStorage.setItem('Score4AllOfThemEasy', localStorage.getItem('Score3AllOfThemEasy', gameScore));
-        localStorage.setItem('Score3AllOfThemEasy', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score4AllOfThemEasy') || localStorage.getItem('Score4AllOfThemEasy') == 'null') {
-        localStorage.setItem('Score5AllOfThemEasy', localStorage.getItem('Score4AllOfThemEasy', gameScore));
-        localStorage.setItem('Score4AllOfThemEasy', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score5AllOfThemEasy') || localStorage.getItem('Score5AllOfThemEasy') == 'null') {
-        localStorage.setItem('Score5AllOfThemEasy', gameScore);
-      }
+      scoreDecider('Score1AllOfThemEasy', 'Score2AllOfThemEasy', 'Score3AllOfThemEasy', 'Score4AllOfThemEasy', 'Score5AllOfThemEasy', gameScore);
       localStorage.removeItem('currentScore');
     } else if (num1 == 49) {
       localStorage.setItem('currentScore', gameScore);
-      if (gameScore >= localStorage.getItem('Score1AllOfThemMedium') || localStorage.getItem('Score1AllOfThemMedium') == 'null') {
-        localStorage.setItem('Score5AllOfThemMedium', localStorage.getItem('Score4AllOfThemMedium', gameScore));
-        localStorage.setItem('Score4AllOfThemMedium', localStorage.getItem('Score3AllOfThemMedium', gameScore));
-        localStorage.setItem('Score3AllOfThemMedium', localStorage.getItem('Score2AllOfThemMedium', gameScore));
-        localStorage.setItem('Score2AllOfThemMedium', localStorage.getItem('Score1AllOfThemMedium', gameScore));
-        localStorage.setItem('Score1AllOfThemMedium', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score2AllOfThemMedium') || localStorage.getItem('Score2AllOfThemMedium') == 'null') {
-        localStorage.setItem('Score5AllOfThemMedium', localStorage.getItem('Score4AllOfThemMedium', gameScore));
-        localStorage.setItem('Score4AllOfThemMedium', localStorage.getItem('Score3AllOfThemMedium', gameScore));
-        localStorage.setItem('Score3AllOfThemMedium', localStorage.getItem('Score2AllOfThemMedium', gameScore));
-        localStorage.setItem('Score2AllOfThemMedium', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score3AllOfThemMedium') || localStorage.getItem('Score3AllOfThemMedium') == 'null') {
-        localStorage.setItem('Score5AllOfThemMedium', localStorage.getItem('Score4AllOfThemMedium', gameScore));
-        localStorage.setItem('Score4AllOfThemMedium', localStorage.getItem('Score3AllOfThemMedium', gameScore));
-        localStorage.setItem('Score3AllOfThemMedium', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score4AllOfThemMedium') || localStorage.getItem('Score4AllOfThemMedium') == 'null') {
-        localStorage.setItem('Score5AllOfThemMedium', localStorage.getItem('Score4AllOfThemMedium', gameScore));
-        localStorage.setItem('Score4AllOfThemMedium', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score5AllOfThemMedium') || localStorage.getItem('Score5AllOfThemMedium') == 'null') {
-        localStorage.setItem('Score5AllOfThemMedium', gameScore);
-      }
+      scoreDecider('Score1AllOfThemMedium', 'Score2AllOfThemMedium', 'Score3AllOfThemMedium', 'Score4AllOfThemMedium', 'Score5AllOfThemMedium', gameScore);
       localStorage.removeItem('currentScore');
     } else if (num1 == 99) {
       localStorage.setItem('currentScore', gameScore);
-      if (gameScore >= localStorage.getItem('Score1AllOfThemHard') || localStorage.getItem('Score1AllOfThemHard') == 'null') {
-        localStorage.setItem('Score5AllOfThemHard', localStorage.getItem('Score4AllOfThemHard', gameScore));
-        localStorage.setItem('Score4AllOfThemHard', localStorage.getItem('Score3AllOfThemHard', gameScore));
-        localStorage.setItem('Score3AllOfThemHard', localStorage.getItem('Score2AllOfThemHard', gameScore));
-        localStorage.setItem('Score2AllOfThemHard', localStorage.getItem('Score1AllOfThemHard', gameScore));
-        localStorage.setItem('Score1AllOfThemHard', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score2AllOfThemHard') || localStorage.getItem('Score2AllOfThemHard') == 'null') {
-        localStorage.setItem('Score5AllOfThemHard', localStorage.getItem('Score4AllOfThemHard', gameScore));
-        localStorage.setItem('Score4AllOfThemHard', localStorage.getItem('Score3AllOfThemHard', gameScore));
-        localStorage.setItem('Score3AllOfThemHard', localStorage.getItem('Score2AllOfThemHard', gameScore));
-        localStorage.setItem('Score2AllOfThemHard', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score3AllOfThemHard') || localStorage.getItem('Score3AllOfThemHard') == 'null') {
-        localStorage.setItem('Score5AllOfThemHard', localStorage.getItem('Score4AllOfThemHard', gameScore));
-        localStorage.setItem('Score4AllOfThemHard', localStorage.getItem('Score3AllOfThemHard', gameScore));
-        localStorage.setItem('Score3AllOfThemHard', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score4AllOfThemHard') || localStorage.getItem('Score4AllOfThemHard') == 'null') {
-        localStorage.setItem('Score5AllOfThemHard', localStorage.getItem('Score4AllOfThemHard', gameScore));
-        localStorage.setItem('Score4AllOfThemHard', gameScore);
-      }
-      else if (gameScore >= localStorage.getItem('Score5AllOfThemHard') || localStorage.getItem('Score5AllOfThemHard') == 'null') {
-        localStorage.setItem('Score5AllOfThemHard', gameScore);
-      }
+      scoreDecider('Score1AllOfThemHard', 'Score2AllOfThemHard', 'Score3AllOfThemHard', 'Score4AllOfThemHard', 'Score5AllOfThemHard', gameScore);
       localStorage.removeItem('currentScore');
     }
   };
