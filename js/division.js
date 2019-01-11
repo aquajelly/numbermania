@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gameOverDisplay = () => {
       const container = document.querySelector('.container');
-      container.appendChild(homeButton);
+      homeButton.classList.toggle('fadeIn');
       const buttonArea = document.createElement('div');
       buttonArea.className = 'buttons';
       buttonArea.style.textAlign = 'center';
@@ -271,6 +271,13 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonArea.appendChild(newLinkForDifficulty);
 
       body.insertBefore(buttonArea, button);
+      buttonArea.classList.add('disappear');
+
+      fadeForReplayButtons = () => {
+        buttonArea.classList.toggle('fadeIn');
+        homeButton.classList.remove('disappear', 'fadeIn');
+      }
+      setTimeout(fadeForReplayButtons, 500);
 
       replayTypeDecider = () => {
         game.parentNode.removeChild(game);
@@ -338,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
       answerButtonsArea.style.paddingBottom = '20px';
       answerArea.parentNode.removeChild(answerArea);
       delete answerArea;
-      homeButton.parentNode.removeChild(homeButton);
+      homeButton.classList.add('disappear');
 
       setTimeout(gameOverDisplay, 1000);
 
