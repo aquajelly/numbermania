@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  easyDifficulty = document.getElementsByClassName('gameType')[0];
-  mediumDifficulty = document.getElementsByClassName('gameType')[1];
-  hardDifficulty = document.getElementsByClassName('gameType')[2];
+  easyDifficulty = document.getElementsByClassName('easyDifficultyButton')[0];
+  mediumDifficulty = document.getElementsByClassName('mediumDifficultyButton')[0];
+  hardDifficulty = document.getElementsByClassName('hardDifficultyButton')[0];
   content = document.getElementsByClassName('content')[0];
 
   gamePlay = (num1, num2) => {

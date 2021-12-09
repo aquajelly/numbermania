@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
   scoreDesign(topScores.current4, 'Score4AllOfThemHard', topScores.currentScore4AllOfThemHard, 'fourthScoreAllOfThemHard', 'scoreSuffix4AllOfThemHard');
   scoreDesign(topScores.current5, 'Score5AllOfThemHard', topScores.currentScore5AllOfThemHard, 'fifthScoreAllOfThemHard', 'scoreSuffix5AllOfThemHard');
 
-  topScores.reset = document.getElementsByClassName('resetScores')[0];
-  topScores.reset.addEventListener("click", function(){
+  topScores.reset = document.getElementsByClassName('highScoresResetScoresButton')[0];
+  topScores.reset.addEventListener("click", function() {
     let answer = prompt('Are you sure??? (Type "y" to confirm...)')
     if (answer === 'y') {
       localStorage.clear();
