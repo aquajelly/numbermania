@@ -1,238 +1,410 @@
 body {
-  background-color: rgb(2, 212, 167);
+  margin: 0px;
 }
 
 .header {
+  background-color: rgb(0, 0, 255);
   text-align: center;
-  border: 5px solid black;
-  border-radius: 10px;
-  background-color: rgb(122, 159, 240);
+  vertical-align: middle;
+  line-height: 15vh;
+  height: 15vh;
+  font-size: 5vw;
+  font-family: "courier new";
+  color: white;
 }
 
-.footer {
-  text-align: center;
-  border-top: 2px solid black;
-}
-
-.content, .homeButton {
+.content {
   text-align: center;
 }
 
 .buttons {
   width: 100%;
-  margin: auto;
-  font-size: 20px;
-  margin: 20px 0px;
-  font-family: arial;
+  margin: 0px;
 }
 
-.gameType {
-  background-color: rgb(208, 241, 158);
-  border: 2px solid black;
-  font-size: 20px;
-  padding: 10px;
-  width: 200px;
+.buttonStyle {
+  font-family: "courier new";
+  font-weight: bold;
   text-align: center;
-  margin-bottom: 5px;
+  border: none;
+  margin: 0px;
 }
 
-.upperDisplayElementsContainer {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin: auto;
-  display: flex
+.halfWidthButton {
+  font-size: 3vw;
+  width: 50%;
+  height: 20vh;
 }
 
-.upperDisplayElements {
-  width: 30%;
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 20px;
-  padding: 5px;
-  margin: auto;
-  margin-top: 20px
+.fullWidthButtonSmall {
+  font-size: 3vw;
+  width: 100%;
+  height: 20vh;
 }
 
-.gameClass {
-  background-color: white;
-  border: 5px solid black;
-  text-align: center;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  border-radius: 20px;
+.fullWidthButtonLarge {
+  font-size: 4vw;
+  width: 100%;
+  height: 25vh;
 }
 
-.answerArea {
-  margin: auto;
-  height: 1em;
-  padding: 0.2em;
-  width: 80%;
-  text-align: center;
-  background-color: rgb(2, 212, 167);
-  border: 3px solid black;
+.additionButton {
+  background-color: rgb(205, 245, 249);
+  float: left;
 }
 
-.answerButtons {
-  background-color: rgb(208, 241, 158);
-  border: 2px solid black;
-  font-size: 20px;
-  width: 100px;
-  height: 40px;
-  text-align: center;
-  margin: 5px;
-  border-radius: 15px;
+.subtractionButton {
+  background-color: rgb(239, 205, 249);
 }
 
-.deleteButton {
-  background-color: red;
-  border: 2px solid black;
-  font-size: 20px;
-  height: 40px;
-  width: 210px;
-  text-align: center;
-  margin: 5px;
-  border-radius: 15px;
+.multiplicationButton {
+  background-color: rgb(245, 242, 147);
+  float: left;
 }
 
-.clearButton {
-  background-color: black;
-  color: red;
-  border: 2px solid black;
-  font-size: 20px;
-  height: 40px;
-  width: 210px;
-  text-align: center;
-  margin: 5px;
-  border-radius: 15px;
+.divisionButton {
+  background-color: rgb(249, 208, 127);
 }
 
-.gameType:hover, .answerButtons:hover {
-  background-color: rgb(242, 123, 64);
+.allOfThemButton {
+  background-color: rgb(251, 171, 171);
+}
+
+.howToPlayButton {
+  background-color: rgb(200, 252, 189);
+  float: left;
+}
+
+.highScoresButton {
+  background-color: rgb(196, 189, 255);
+}
+
+.chosenCalculationTypeDisplay {
+  background-color: rgb(0, 0, 255);
+  font-family: "courier new";
   color: white;
+  vertical-align: middle;
+  line-height: 10vh;
+  text-align: center;
+  border: none;
+  margin: 0px;
+  font-size: 2.5vw;
+  width: 100%;
+  height: 10vh;
 }
 
-.deleteButton:hover, .clearButton:hover {
-  background-color: rgb(240, 145, 20);
-  color: black;
+.easyDifficultyButton {
+  background-color: rgb(200, 252, 189);
 }
 
-.intro {
-  font-size: 20px;
+.mediumDifficultyButton {
+  background-color: rgb(249, 208, 127);
 }
 
-.homepage1, .homepage2 {
-  border-top: 2px white solid;
-  padding-top: 20px;
-  width: 60%;
+.hardDifficultyButton {
+  background-color: rgb(251, 171, 171);
+}
+
+.homeButton {
+  background-color: rgb(205, 245, 249);
+  font-size: 3vw;
+  width: 100%;
+  height: 15vh;
+}
+
+.calculationTypeSeparator, .difficultySeparatorLeft,
+.difficultySeparatorCentre, .difficultySeparatorRight {
+  width: 25%;
   margin: auto;
 }
 
-.highScoreCalcType {
-  width: 90%;
+.calculationTypeSeparator {
+  font-size: 3vh;
+}
+
+.difficultySeparatorLeft, .difficultySeparatorCentre, .difficultySeparatorRight {
+  font-size: 1.5vh;
+}
+
+.highScoresPageRow {
+  width: 100%;
   display: flex;
-  margin: auto;
-  border-top: 3px white solid;
-  border-bottom: 3px white solid;
+  height: 12vh;
 }
 
-.difficultySeparatorLeft {
-  border-right: 1px white solid;
+.highScoresPageColumnHeaders {
+  background-color: rgb(208, 241, 158);
+  width: 100%;
+  display: flex;
+  height: 10vh;
 }
 
-.difficultySeparatorCentre, .difficultySeparatorLeft, .difficultySeparatorRight {
-  width: 30%;
-  margin: auto;
+.highScoresPageColumnHeader {
+  font-size: 2vw;
+  font-family: "courier new";
+  font-weight: bold;
 }
 
-.difficultySeparatorRight {
-  border-left: 1px white solid;
+.highScoresCalculationType {
+  font-family:"courier new";
+  font-size: 1.5vw;
 }
 
-.difficultyTitle {
-  font-size: 20px;
-  text-decoration: underline;
+.additionHighScores {
+  background-color: rgb(205, 245, 249);
 }
 
-.finalScore {
-  margin-bottom: 16px;
+.subtractionHighScores {
+  background-color: rgb(239, 205, 249);
 }
 
-.howToPlay {
+.multiplicationHighScores {
+  background-color: rgb(251, 171, 171);
+}
+
+.divisionHighScores {
+  background-color: rgb(249, 208, 127);
+}
+
+.allCalculationTypesHighScores {
+  background-color: rgb(245, 242, 147);
+}
+
+.highScoresHomeButton {
+  background-color: rgb(205, 245, 249);
+  font-size: 3vw;
+  width: 50%;
+  height: 15vh;
+  float: left;
+}
+
+.highScoresResetScoresButton {
+  background-color: rgb(196, 189, 255);
+  font-size: 3vw;
+  width: 50%;
+  height: 15vh;
+}
+
+.scoresDisplay {
+  font-family: "courier new";
+}
+
+.howToPlaySection {
+  background-color: rgb(139, 255, 169);
+}
+
+.howToPlaySteps {
   width: 80%;
   margin: auto;
+  font-family: "courier new";
+  font-weight: bold;
+  height: 70vh;
+  align-items: center;
+  display: flex;
 }
 
-.whiteText {
+.informationAndGameAndButtonsArea {
+  height: 70vh;
+  font-family: "courier new";
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 3vw;
+}
+
+.informationArea {
+  display: flex;
+  height: 10vh;
+  line-height: 10vh;
+}
+
+.informationAreaElementTimer {
+  width: 50%;
+  background-color: rgb(139, 255, 169);
+}
+
+.informationAreaElementDifficulty {
+  width: 50%;
+  background-color: rgb(196, 189, 255);
+}
+
+.gameArea {
+  height: 45vh;
+  display: flex;
+}
+
+.questionAndAnswerOutputArea {
+  height: 45vh;
+  width: 40%;
+}
+
+.questionArea {
+  height: 22.5vh;
+  background-color: rgb(255, 178, 152);
+  width: 100%;
+  line-height: 22.5vh;
+}
+
+.answerOutputArea {
+  height: 22.5vh;
+  background-color: rgb(153, 204, 255);
+  width: 100%;
+  line-height: 22.5vh;
+}
+
+.answerInputArea {
+  height: 45vh;
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.disableHighlightingOnAllBrowserTypes {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.smallAnswerArea {
+  height: 15vh;
+  width: 20%;
+  line-height: 15vh;
+}
+
+.smallAnswerArea:hover {
   color: white;
+  background-color: black;
 }
 
-::placeholder {
-  color: black;
+.bigAnswerArea {
+  height: 15vh;
+  width: 40%;
+  line-height: 15vh;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.bigAnswerArea:hover {
+  color: white;
+  background-color: black;
 }
 
-button:focus {
-  outline: 0;
+.answerAreaBackground0 {
+  background-color: rgb(208, 241, 158);
 }
 
-.disappear {
-  opacity: 0;
+.answerAreaBackground1 {
+  background-color: rgb(245, 242, 147);
 }
 
-.disappear.fadeIn {
-  opacity: 1;
-  transition: opacity 1s;
+.answerAreaMinus {
+  background-color: rgb(249, 208, 127);
+}
+
+.answerAreaDelete {
+  background-color: rgb(251, 171, 171);
+}
+
+.answerAreaClear {
+  background-color: rgb(249, 208, 127);
+}
+
+.gameOverPopup {
+  width: 100%;
+  margin: auto;
+  height: 55vh;
+  position: absolute;
+  top: 15vh;
+  left: 0;
+}
+
+.wellDonePopupArea {
+  width: 100%;
+  margin: auto;
+  height: 20vh;
+  background-color: rgb(245, 242, 147);
+}
+
+.scorePopupArea {
+  width: 100%;
+  margin: auto;
+  height: 15vh;
+  background-color: rgb(245, 242, 147);
+}
+
+.ratingPopupArea {
+  width: 100%;
+  margin: auto;
+  height: 20vh;
+  background-color: rgb(245, 242, 147);
+}
+
+.fadeIn {
+  -webkit-animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -ms-animation: fadein 1s;
+  -o-animation: fadein 1s;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.buttonToDivAppearance {
+  border: none;
+  margin: 0px;
+  font-family: "courier new";
+  font-weight: bold;
+  font-size: 3vw;
+}
+
+.playAgainButton {
+  background-color: rgb(239, 205, 249);
+  font-size: 3vw;
+  width: 50%;
+  height: 15vh;
+  float: left;
+}
+
+.changeDifficultyButton {
+  background-color: rgb(200, 252, 189);
+  font-size: 3vw;
+  width: 50%;
+  height: 15vh;
+}
+
+.buttonStyle:hover {
+  background-color: black;
+  color: white;
 }
 
 @media screen and (max-width: 500px) {
-  .header-title {
-    width: 100%;
-    font-size: 6vw;
-  }
-  .intro {
-    font-size: 5vw;
-  }
   .homepage1, .homepage2 {
     font-size: 4vw;
   }
-  .gameType {
-    width: 50%;
-    font-size: 4vw;
-  }
-  .footer-title {
-    font-size: 5vw;
-  }
-  .difficultyTitle {
-    font-size: 3vw;
-  }
-  .scoresDisplay {
-    font-size: 2vw;
-  }
-  .gameClass, .gameHeaders {
-    width: 90%;
-  }
-  .answerButtons {
-    width: 20%;
-    height: 10vw;
-    font-size: 4vw;
-    padding: 0px;
-    margin: 1vw;
-  }
-  .deleteButton, .clearButton {
-    width: 42%;
-    height: 10vw;
-    font-size: 4vw;
-    padding: 0px;
-    margin: 1vw;
-  }
-  .gameType:hover, .answerButtons:hover {
+  .gameTypeButton:hover {
     background-color: rgb(208, 241, 158);
     color: black;
   }
@@ -244,12 +416,14 @@ button:focus {
     background-color: black;
     color: red;
   }
-  .gameType:active, .answerButtons:active {
+  .gameTypeButton:active {
     background-color: rgb(242, 123, 64);
     color: white;
   }
-  .deleteButton:active, .clearButton:active {
-    background-color: rgb(240, 145, 20);
-    color: black;
+  .howToPlaySteps {
+    font-size: 3vw;
+  }
+  .highScoresCalculationType {
+    font-size: 2vw;
   }
 }
