@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   gamePlay = (difficulty, calculationType) => {
     let gameStarted = false;
     let gameScore = 0;
-    let seconds = 3;
+    let seconds = 30;
     let deciseconds = 0;
 
     const informationAndGameAndButtonsArea = document.createElement('div');
