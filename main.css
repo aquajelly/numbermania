@@ -1,6 +1,11 @@
 body {
   margin: 0px;
+  min-height: 100vh;
   min-height: -webkit-fill-available
+}
+
+html {
+  height: -webkit-fill-available;
 }
 
 .header {
@@ -8,7 +13,7 @@ body {
   text-align: center;
   vertical-align: middle;
   line-height: 15vh;
-  height: 15%;
+  height: 15vh;
   font-size: 5vw;
   font-family: "courier new";
   color: white;
