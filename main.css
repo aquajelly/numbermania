@@ -1,19 +1,13 @@
 body {
   margin: 0px;
-  min-height: 100vh;
-  min-height: -webkit-fill-available
-}
-
-html {
-  height: -webkit-fill-available;
 }
 
 .header {
   background-color: rgb(0, 0, 255);
   text-align: center;
   vertical-align: middle;
-  line-height: 15vh;
-  height: 15vh;
+  line-height: calc(var(--vh, 1vh) * 15);
+  height: calc(var(--vh, 1vh) * 15);
   font-size: 5vw;
   font-family: "courier new";
   color: white;
@@ -36,22 +30,32 @@ html {
   margin: 0px;
 }
 
+.buttonStyle:hover {
+  background-color: black;
+  color: white;
+}
+
+.buttonStyle:active {
+  background-color: white;
+  color: black;
+}
+
 .halfWidthButton {
   font-size: 3vw;
   width: 50%;
-  height: 20vh;
+  height: calc(var(--vh, 1vh) * 20);
 }
 
 .fullWidthButtonSmall {
   font-size: 3vw;
   width: 100%;
-  height: 20vh;
+  height: calc(var(--vh, 1vh) * 20);
 }
 
 .fullWidthButtonLarge {
   font-size: 4vw;
   width: 100%;
-  height: 25vh;
+  height: calc(var(--vh, 1vh) * 25);
 }
 
 .additionButton {
@@ -90,13 +94,13 @@ html {
   font-family: "courier new";
   color: white;
   vertical-align: middle;
-  line-height: 10vh;
+  line-height: calc(var(--vh, 1vh) * 10);
   text-align: center;
   border: none;
   margin: 0px;
   font-size: 2.5vw;
   width: 100%;
-  height: 10vh;
+  height: calc(var(--vh, 1vh) * 10);
 }
 
 .easyDifficultyButton {
@@ -115,7 +119,7 @@ html {
   background-color: rgb(205, 245, 249);
   font-size: 3vw;
   width: 100%;
-  height: 15vh;
+  height: calc(var(--vh, 1vh) * 15);
 }
 
 .calculationTypeSeparator, .difficultySeparatorLeft,
@@ -125,24 +129,24 @@ html {
 }
 
 .calculationTypeSeparator {
-  font-size: 3vh;
+  font-size: calc(var(--vh, 1vh) * 3);
 }
 
 .difficultySeparatorLeft, .difficultySeparatorCentre, .difficultySeparatorRight {
-  font-size: 1.5vh;
+  font-size: calc(var(--vh, 1vh) * 1.5);
 }
 
 .highScoresPageRow {
   width: 100%;
   display: flex;
-  height: 12vh;
+  height: calc(var(--vh, 1vh) * 12);
 }
 
 .highScoresPageColumnHeaders {
   background-color: rgb(208, 241, 158);
   width: 100%;
   display: flex;
-  height: 10vh;
+  height: calc(var(--vh, 1vh) * 10);
 }
 
 .highScoresPageColumnHeader {
@@ -180,7 +184,7 @@ html {
   background-color: rgb(205, 245, 249);
   font-size: 3vw;
   width: 50%;
-  height: 15vh;
+  height: calc(var(--vh, 1vh) * 15);
   float: left;
 }
 
@@ -188,7 +192,7 @@ html {
   background-color: rgb(196, 189, 255);
   font-size: 3vw;
   width: 50%;
-  height: 15vh;
+  height: calc(var(--vh, 1vh) * 15);
 }
 
 .scoresDisplay {
@@ -204,13 +208,13 @@ html {
   margin: auto;
   font-family: "courier new";
   font-weight: bold;
-  height: 70vh;
+  height: calc(var(--vh, 1vh) * 70);
   align-items: center;
   display: flex;
 }
 
 .informationAndGameAndButtonsArea {
-  height: 70vh;
+  height: calc(var(--vh, 1vh) * 70);
   font-family: "courier new";
   font-weight: bold;
   text-align: center;
@@ -220,8 +224,8 @@ html {
 
 .informationArea {
   display: flex;
-  height: 10vh;
-  line-height: 10vh;
+  height: calc(var(--vh, 1vh) * 10);
+  line-height: calc(var(--vh, 1vh) * 10);
 }
 
 .informationAreaElementTimer {
@@ -235,31 +239,31 @@ html {
 }
 
 .gameArea {
-  height: 45vh;
+  height: calc(var(--vh, 1vh) * 45);
   display: flex;
 }
 
 .questionAndAnswerOutputArea {
-  height: 45vh;
+  height: calc(var(--vh, 1vh) * 45);
   width: 40%;
 }
 
 .questionArea {
-  height: 22.5vh;
+  height: calc(var(--vh, 1vh) * 22.5);
   background-color: rgb(255, 178, 152);
   width: 100%;
-  line-height: 22.5vh;
+  line-height: calc(var(--vh, 1vh) * 22.5);
 }
 
 .answerOutputArea {
-  height: 22.5vh;
+  height: calc(var(--vh, 1vh) * 22.5);
   background-color: rgb(153, 204, 255);
   width: 100%;
-  line-height: 22.5vh;
+  line-height: calc(var(--vh, 1vh) * 22.5);
 }
 
 .answerInputArea {
-  height: 45vh;
+  height: calc(var(--vh, 1vh) * 45);
   width: 60%;
   display: flex;
   flex-wrap: wrap;
@@ -274,25 +278,37 @@ html {
 }
 
 .smallAnswerArea {
-  height: 15vh;
+  height: calc(var(--vh, 1vh) * 15);
   width: 20%;
-  line-height: 15vh;
-}
-
-.smallAnswerArea:hover {
-  color: white;
-  background-color: black;
+  line-height: calc(var(--vh, 1vh) * 15);
 }
 
 .bigAnswerArea {
-  height: 15vh;
+  height: calc(var(--vh, 1vh) * 15);
   width: 40%;
-  line-height: 15vh;
+  line-height: calc(var(--vh, 1vh) * 15);
 }
 
-.bigAnswerArea:hover {
-  color: white;
-  background-color: black;
+@media screen and (hover: hover) {
+  .bigAnswerArea:hover {
+    background-color: black;
+    color: white;
+  }
+
+  .smallAnswerArea:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+.smallAnswerArea:active {
+  background-color: white;
+  color: black;
+}
+
+.bigAnswerArea:active {
+  background-color: white;
+  color: black;
 }
 
 .answerAreaBackground0 {
@@ -318,30 +334,30 @@ html {
 .gameOverPopup {
   width: 100%;
   margin: auto;
-  height: 55vh;
+  height: calc(var(--vh, 1vh) * 55);
   position: absolute;
-  top: 15vh;
+  top: calc(var(--vh, 1vh) * 15);
   left: 0;
 }
 
 .wellDonePopupArea {
   width: 100%;
   margin: auto;
-  height: 20vh;
+  height: calc(var(--vh, 1vh) * 20);
   background-color: rgb(245, 242, 147);
 }
 
 .scorePopupArea {
   width: 100%;
   margin: auto;
-  height: 15vh;
+  height: calc(var(--vh, 1vh) * 15);
   background-color: rgb(245, 242, 147);
 }
 
 .ratingPopupArea {
   width: 100%;
   margin: auto;
-  height: 20vh;
+  height: calc(var(--vh, 1vh) * 20);
   background-color: rgb(245, 242, 147);
 }
 
@@ -390,7 +406,7 @@ html {
   background-color: rgb(239, 205, 249);
   font-size: 3vw;
   width: 50%;
-  height: 15vh;
+  height: calc(var(--vh, 1vh) * 15);
   float: left;
 }
 
@@ -398,12 +414,7 @@ html {
   background-color: rgb(200, 252, 189);
   font-size: 3vw;
   width: 50%;
-  height: 15vh;
-}
-
-.buttonStyle:hover {
-  background-color: black;
-  color: white;
+  height: calc(var(--vh, 1vh) * 15);
 }
 
 @media screen and (max-width: 500px) {
