@@ -6,8 +6,8 @@ body {
   background-color: rgb(0, 0, 255);
   text-align: center;
   vertical-align: middle;
-  line-height: calc(var(--vh, 1vh) * 15);
-  height: calc(var(--vh, 1vh) * 15);
+  line-height: calc(var(--vh, 0.01vh) * 15);
+  height: calc(var(--vh, 0.01vh) * 15);
   font-size: 5vw;
   font-family: "courier new";
   color: white;
@@ -30,14 +30,14 @@ body {
   margin: 0px;
 }
 
-.buttonStyle:hover {
+/* .buttonStyle:hover {
   background-color: black;
   color: white;
-}
+} */
 
 .buttonStyle:active {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 .halfWidthButton {
@@ -289,7 +289,7 @@ body {
   line-height: calc(var(--vh, 1vh) * 15);
 }
 
-@media screen and (hover: hover) {
+/* @media screen and (hover: hover) {
   .bigAnswerArea:hover {
     background-color: black;
     color: white;
@@ -299,16 +299,16 @@ body {
     background-color: black;
     color: white;
   }
-}
+} */
 
 .smallAnswerArea:active {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 .bigAnswerArea:active {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 .answerAreaBackground0 {
@@ -418,25 +418,6 @@ body {
 }
 
 @media screen and (max-width: 500px) {
-  .homepage1, .homepage2 {
-    font-size: 4vw;
-  }
-  .gameTypeButton:hover {
-    background-color: rgb(208, 241, 158);
-    color: black;
-  }
-  .deleteButton:hover {
-    background-color: red;
-    color: black;
-  }
-  .clearButton:hover {
-    background-color: black;
-    color: red;
-  }
-  .gameTypeButton:active {
-    background-color: rgb(242, 123, 64);
-    color: white;
-  }
   .howToPlaySteps {
     font-size: 3vw;
   }
