@@ -232,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(countdownIntervalId);
       informationArea.parentNode.removeChild(informationArea);
       gameArea.parentNode.removeChild(gameArea);
+      informationAndGameAndButtonsArea.parentNode.removeChild(informationAndGameAndButtonsArea);
       newButtonForDifficulty.parentNode.removeChild(newButtonForDifficulty);
       newButtonForReplay.parentNode.removeChild(newButtonForReplay);
       gamePlay(difficulty, calculationType);
@@ -258,8 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonArea.insertBefore(newButtonForReplay, homeButton);
     buttonArea.insertBefore(newButtonForDifficulty, homeButton);
 
-    informationAndGameAndButtonsArea.appendChild(buttonArea);
-
     const body = document.querySelector('body');
     const button = document.querySelector('div');
     body.insertBefore(informationAndGameAndButtonsArea, button);
@@ -267,20 +266,24 @@ document.addEventListener('DOMContentLoaded', () => {
     timerDisplay.innerHTML = `Time Left: ${seconds}.${deciseconds}`;
 
     ready = () => {
+      questionArea.style.background = 'red';
       questionArea.innerHTML = 'Ready...';
     }
 
     getSet = () => {
+      questionArea.style.background = 'orange';
       questionArea.innerHTML = 'Get set...';
     }
 
     go = () => {
+      questionArea.style.background = 'limegreen';
       questionArea.innerHTML = 'Go!';
     }
 
     gameStart = () => {
-      correctAnswer = generateQuestionAndReturnCorrectAnswer();
+      questionArea.style.background = 'rgb(153, 204, 255)';
       gameStarted = true;
+      correctAnswer = generateQuestionAndReturnCorrectAnswer();
       enableEventListeners();
     }
 
@@ -306,8 +309,8 @@ document.addEventListener('DOMContentLoaded', () => {
     disableEventListeners();
     ready();
     setTimeout(getSet, 1000);
-    setTimeout(go, 2000);
-    setTimeout(gameStart, 3000);
+    setTimeout(go, 2250);
+    setTimeout(gameStart, 3500);
 
     const countdownIntervalId = setInterval(countdown, 100);
 
@@ -316,16 +319,16 @@ document.addEventListener('DOMContentLoaded', () => {
         case "Easy":
         switch (givenCalculationType) {
           case "Addition":
-          return 19;
+          return 15;
           break;
           case "Subtraction":
-          return 19;
+          return 15;
           break;
           case "Multiplication":
-          return 4;
+          return 6;
           break;
           case "Division":
-          return 49;
+          return 30;
           break;
           case "AllOfThem":
           return 1337;
@@ -335,16 +338,16 @@ document.addEventListener('DOMContentLoaded', () => {
         case "Medium":
         switch (givenCalculationType) {
           case "Addition":
-          return 49;
+          return 60;
           break;
           case "Subtraction":
-          return 49;
+          return 60;
           break;
           case "Multiplication":
-          return 9;
+          return 12;
           break;
           case "Division":
-          return 99;
+          return 150;
           break;
           case "AllOfThem":
           return 1337;
@@ -354,16 +357,16 @@ document.addEventListener('DOMContentLoaded', () => {
         case "Hard":
         switch (givenCalculationType) {
           case "Addition":
-          return 99;
+          return 150;
           break;
           case "Subtraction":
-          return 99;
+          return 150;
           break;
           case "Multiplication":
-          return 19;
+          return 25;
           break;
           case "Division":
-          return 199;
+          return 300;
           break;
           case "AllOfThem":
           return 1337;
@@ -377,13 +380,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (givenCalculationType == "Division") {
         switch (difficulty) {
           case "Easy":
-          return 3;
+          return 8;
           break;
           case "Medium":
-          return 18;
+          return 20;
           break;
           case "Hard":
-          return 48;
+          return 50;
           break;
         }
       } else {
@@ -391,19 +394,70 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    randomScaleSkewedToGetLargerNumbers = () => {
+      let scale = Math.random();
+      let randomNumberBetween1And3 = parseInt(Math.random()*3) + 1;
+
+      if (scale < 0.5) {
+        if (randomNumberBetween1And3 == 1) {
+          scale += 0.1;
+        } else if (randomNumberBetween1And3 == 2) {
+          scale += 0.3;
+        } else {
+          scale += 0.5;
+        }
+      }
+
+      return scale;
+    }
+
+    reshuffleIfEqualToOneOrTenAndSometimesTwo = (calculationNumber) => {
+      let randomNumberBetween1And3 = parseInt(Math.random()*3) + 1;
+
+      if (calculationNumber == 1) {
+        if (randomNumberBetween1And3 == 1) {
+          calculationNumber += 2;
+        } else if (randomNumberBetween1And3 == 2) {
+          calculationNumber += 3;
+        } else {
+          calculationNumber += 5;
+        }
+      }
+
+      if (calculationNumber == 2) {
+        if (randomNumberBetween1And3 == 1) {
+          calculationNumber += 1;
+        }
+      }
+
+      if (calculationNumber == 10) {
+        if (randomNumberBetween1And3 == 1) {
+          calculationNumber += 1;
+        } else if (randomNumberBetween1And3 == 2) {
+          calculationNumber += 2;
+        } else {
+          calculationNumber -= 1;
+        }
+      }
+
+      return calculationNumber;
+    }
+
     getCalculationNumber = (rawCalculationNumber, givenCalculationType) => {
       switch (givenCalculationType) {
         case "Addition":
-        return parseInt(Math.random()*rawCalculationNumber) + 1;
+        return parseInt(randomScaleSkewedToGetLargerNumbers()*rawCalculationNumber) + 1;
         break;
         case "Subtraction":
-        return parseInt(Math.random()*rawCalculationNumber) + 1;
+        return parseInt(randomScaleSkewedToGetLargerNumbers()*rawCalculationNumber) + 1;
         break;
         case "Multiplication":
-        return parseInt(Math.random()*rawCalculationNumber) + 2;
+        return reshuffleIfEqualToOneOrTenAndSometimesTwo(
+          parseInt(randomScaleSkewedToGetLargerNumbers()*rawCalculationNumber) + 1);
         break;
         case "Division":
-        return parseInt(Math.random()*rawCalculationNumber) + 2;
+        return reshuffleIfEqualToOneOrTenAndSometimesTwo(
+          parseInt(randomScaleSkewedToGetLargerNumbers()*rawCalculationNumber) + 1);
         break;
         case "AllOfThem":
         return 1337;
@@ -411,11 +465,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    checkCalculationNumbersAreValid = () => {
-      if (calculationNumber1 % calculationNumber2 != 0) {
+    checkCalculationNumbersAreValidAndThatTheAnswerIsNotOneOrTen = () => {
+      if (calculationNumber1 % calculationNumber2 != 0 ||
+          calculationNumber1 / calculationNumber2 == 1 ||
+          calculationNumber1 / calculationNumber2 == 10) {
         calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Division");
         calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Division");
-        checkCalculationNumbersAreValid();
+        checkCalculationNumbersAreValidAndThatTheAnswerIsNotOneOrTen();
       }
     }
 
@@ -450,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
         rawCalculationNumberLimit2 = getRawCalculationNumberLimit2("Division");
         calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Division");
         calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Division");
-        checkCalculationNumbersAreValid();
+        checkCalculationNumbersAreValidAndThatTheAnswerIsNotOneOrTen();
 
         questionArea.innerHTML = `${calculationNumber1} ÷ ${calculationNumber2}`;
         return calculationNumber1 / calculationNumber2;
@@ -458,39 +514,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     generateQuestionAndReturnCorrectAnswer = () => {
-      switch (calculationType) {
-        case "Addition":
-        calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Addition");
-        calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Addition");
+      if (gameStarted == true) {
+        switch (calculationType) {
+          case "Addition":
+          calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Addition");
+          calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Addition");
 
-        questionArea.innerHTML = `${calculationNumber1} + ${calculationNumber2} = ?`;
-        return calculationNumber1 + calculationNumber2;
-        break;
-        case "Subtraction":
-        calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Subtraction");
-        calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Subtraction");
+          questionArea.innerHTML = `${calculationNumber1} + ${calculationNumber2} = ?`;
+          return calculationNumber1 + calculationNumber2;
+          break;
+          case "Subtraction":
+          calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Subtraction");
+          calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Subtraction");
 
-        questionArea.innerHTML = `${calculationNumber1} - ${calculationNumber2} = ?`;
-        return calculationNumber1 - calculationNumber2;
-        break;
-        case "Multiplication":
-        calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Multiplication");
-        calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Multiplication");
+          questionArea.innerHTML = `${calculationNumber1} - ${calculationNumber2} = ?`;
+          return calculationNumber1 - calculationNumber2;
+          break;
+          case "Multiplication":
+          calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Multiplication");
+          calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Multiplication");
 
-        questionArea.innerHTML = `${calculationNumber1} x ${calculationNumber2} = ?`;
-        return calculationNumber1 * calculationNumber2;
-        break;
-        case "Division":
-        calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Division");
-        calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Division");
+          questionArea.innerHTML = `${calculationNumber1} x ${calculationNumber2} = ?`;
+          return calculationNumber1 * calculationNumber2;
+          break;
+          case "Division":
+          calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, "Division");
+          calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, "Division");
 
-        checkCalculationNumbersAreValid();
-        questionArea.innerHTML = `${calculationNumber1} ÷ ${calculationNumber2} = ?`;
-        return calculationNumber1 / calculationNumber2;
-        break;
-        case "AllOfThem":
-        return chooseCalculationTypeAndGenerateNumbersAndQuestionAndReturnCorrectAnswer();
-        break;
+          checkCalculationNumbersAreValidAndThatTheAnswerIsNotOneOrTen();
+          questionArea.innerHTML = `${calculationNumber1} ÷ ${calculationNumber2} = ?`;
+          return calculationNumber1 / calculationNumber2;
+          break;
+          case "AllOfThem":
+          return chooseCalculationTypeAndGenerateNumbersAndQuestionAndReturnCorrectAnswer();
+          break;
+        }
       }
     }
 
@@ -500,17 +558,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let calculationNumber2 = getCalculationNumber(rawCalculationNumberLimit2, calculationType);
 
     if (calculationType == "Division") {
-      checkCalculationNumbersAreValid();
+      checkCalculationNumbersAreValidAndThatTheAnswerIsNotOneOrTen();
     }
 
     let correctAnswer;
     let correctAnswerGiven = false;
 
     generateNextQuestion = (calculationNumber1, calculationNumber2) => {
-      correctAnswer = generateQuestionAndReturnCorrectAnswer();
       submittedAnswer = '';
-      questionArea.style.background = 'rgb(255, 178, 152)';
-      answerOutputArea.style.background = 'rgb(153, 204, 255)';
+      correctAnswer = generateQuestionAndReturnCorrectAnswer();
+      questionArea.style.background = 'rgb(153, 204, 255)';
+      answerOutputArea.style.background = 'rgb(161, 240, 211)';
       enableEventListeners();
       correctAnswerGiven = false;
     }
