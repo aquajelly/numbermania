@@ -34,11 +34,6 @@ button {
   margin: 0px;
 }
 
-/* .buttonStyle:hover {
-  background-color: black;
-  color: white;
-} */
-
 .buttonStyle:active {
   background-color: black;
   color: white;
@@ -218,7 +213,7 @@ button {
 }
 
 .informationAndGameAndButtonsArea {
-  height: calc(var(--vh, 1vh) * 70);
+  height: calc(var(--vh, 1vh) * 55);
   font-family: "courier new";
   font-weight: bold;
   text-align: center;
@@ -254,14 +249,14 @@ button {
 
 .questionArea {
   height: calc(var(--vh, 1vh) * 22.5);
-  background-color: rgb(255, 178, 152);
+  background-color: rgb(153, 204, 255);
   width: 100%;
   line-height: calc(var(--vh, 1vh) * 22.5);
 }
 
 .answerOutputArea {
   height: calc(var(--vh, 1vh) * 22.5);
-  background-color: rgb(153, 204, 255);
+  background-color: rgb(161, 240, 211);
   width: 100%;
   line-height: calc(var(--vh, 1vh) * 22.5);
 }
@@ -292,18 +287,6 @@ button {
   width: 40%;
   line-height: calc(var(--vh, 1vh) * 15);
 }
-
-/* @media screen and (hover: hover) {
-  .bigAnswerArea:hover {
-    background-color: black;
-    color: white;
-  }
-
-  .smallAnswerArea:hover {
-    background-color: black;
-    color: white;
-  }
-} */
 
 .smallAnswerArea:active {
   background-color: black;
@@ -425,7 +408,99 @@ button {
   .howToPlaySteps {
     font-size: 2.5vw;
   }
+
   .highScoresCalculationType {
     font-size: 2vw;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .informationAndGameAndButtonsArea {
+    height: calc(var(--vh, 1vh) * 60);
+  }
+
+  .informationArea {
+    height: calc(var(--vh, 1vh) * 7.5);
+    line-height: calc(var(--vh, 1vh) * 7.5);
+  }
+
+  .gameArea {
+    display: block;
+    height: calc(var(--vh, 1vh) * 52.5);
+  }
+
+  .questionAndAnswerOutputArea {
+    height: calc(var(--vh, 1vh) * 12.5);
+    width: 100%;
+  }
+
+  .questionArea {
+    height: calc(var(--vh, 1vh) * 12.5);
+    width: 50%;
+    line-height: calc(var(--vh, 1vh) * 12.5);
+  }
+
+  .answerOutputArea {
+    height: calc(var(--vh, 1vh) * 12.5);
+    width: 50%;
+    line-height: calc(var(--vh, 1vh) * 12.5);
+  }
+
+  .answerInputArea {
+    height: calc(var(--vh, 1vh) * 30);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .smallAnswerArea {
+    height: calc(var(--vh, 1vh) * 15);
+    width: 20%;
+    line-height: calc(var(--vh, 1vh) * 15);
+  }
+
+  .bigAnswerArea {
+    height: calc(var(--vh, 1vh) * 15);
+    width: 40%;
+    line-height: calc(var(--vh, 1vh) * 15);
+  }
+
+  .answerAreaMinus {
+    height: calc(var(--vh, 1vh) * 10);
+    line-height: calc(var(--vh, 1vh) * 10);
+  }
+
+  .answerAreaDelete {
+    height: calc(var(--vh, 1vh) * 10);
+    line-height: calc(var(--vh, 1vh) * 10);
+  }
+
+  .answerAreaClear {
+    height: calc(var(--vh, 1vh) * 10);
+    line-height: calc(var(--vh, 1vh) * 10);
+  }
+
+  .gameOverPopup {
+    height: calc(var(--vh, 1vh) * 60);
+  }
+
+  .wellDonePopupArea {
+    height: calc(var(--vh, 1vh) * 20);
+  }
+
+  .scorePopupArea {
+    height: calc(var(--vh, 1vh) * 20);
+  }
+
+  .ratingPopupArea {
+    height: calc(var(--vh, 1vh) * 20);
+  }
+
+  .playAgainButton {
+    height: calc(var(--vh, 1vh) * 10);
+  }
+
+  .changeDifficultyButton {
+    height: calc(var(--vh, 1vh) * 10);
   }
 }
