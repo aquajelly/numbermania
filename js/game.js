@@ -44,7 +44,6 @@ gamePlay = (difficulty, calculationType) => {
   let newButtonForDifficultyContent = document.createElement('button');
   let body = document.querySelector('body');
   let button = document.querySelector('div');
-  let countdownIntervalId = setInterval(countdown, 100);
   let rawCalculationNumberLimit1 = getRawCalculationNumberLimit1(difficulty, calculationType);
   let rawCalculationNumberLimit2 = getRawCalculationNumberLimit2(difficulty, calculationType, rawCalculationNumberLimit1);
   let calculationNumber1 = getCalculationNumber(rawCalculationNumberLimit1, calculationType);
@@ -200,6 +199,8 @@ gamePlay = (difficulty, calculationType) => {
       }
     }
   }
+
+  let countdownIntervalId = setInterval(countdown, 100);
 
   disableEventListeners();
   ready();
